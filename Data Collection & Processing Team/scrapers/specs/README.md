@@ -12,8 +12,32 @@ Each price row is joined to its variant through the retailer's own product id:
 | Pozitif | `08_Communication/PozitifTeknoloji/pozitifTeknoloji_YYYY-MM-DD.csv` | `product_id` | `retailer_product_id` |
 | Samsung | `08_Communication/Samsung/samsung_YYYY-MM-DD.csv` | `id` | `retailer_product_id` |
 | Beymen | `08_Communication/Beymen/beymen_YYYY-MM-DD.csv` | `UrunID` | `retailer_product_id` |
+| Marketzade | `01_Food/Marketzade/marketzade_YYYY-MM-DD.csv` | `product_name` (no id since 2026-10-26) | `name` |
+| Hakmar | `01_Food/Hakmar/hakmar_YYYY-MM-DD.csv` | `product_name` (no id) | `name` |
+| Sariyer | `01_Food/Sariyer/sariyermarket_YYYY-MM-DD.csv` | `product_name` (no id) | `name` |
+| HappyCenter | `01_Food/HappyCenter/happycenter_YYYY-MM-DD.csv` | `product_name` (no id) | `name` |
+| Ideal | `01_Food/Ideal/ideal_prices_YYYY-MM-DD.csv` | `product_name` (no id) | `name` |
 
 On 2026-10-28 the joins were: Pozitif 1333/1347, Samsung 343/348, Beymen 11212/11212.
+On 2026-10-30, by name: Marketzade 2794/2802, Hakmar 1147/1177 (its latest daily file is from
+2026-10-27; the misses are fresh produce no longer listed), Sariyer 6150/6208, HappyCenter 5826/5862
+(2026-10-27 file; 34 names are used for two products), Ideal 2719/2719.
+
+**Groceries link by name.** Since 2026-10-26 the grocery daily files have no id, so a price row is
+linked through its name. Each grocery scraper cleans names exactly like that store's daily scraper does,
+so the same product has the same name in both files (`common.check_name_join` measures it). A name that matches several ids is ambiguous and
+must not be linked. Grocery files have their own columns (see [Grocery columns](#grocery-columns)).
+
+**Code reused from the inflation study.** Each copy says where it came from and what changed:
+
+- `sariyer/` is copied from `InflationItems/Codes/01_Food/Sariyer` (commit `a107f1664`). Images are read
+  from `data-lazyloadsrc` (the `src` is a placeholder), and categories record their menu level so only
+  the 14 top-level ones are read; they include their subcategories.
+- `happycenter/` is copied from `InflationItems/Codes/01_Food/HappyCenter` (commit `70d13e445`). Its daily
+  CSV output is removed and product images are read. It walks only the food aisles, like the daily scraper.
+- `ideal_specs.py` follows the page walking of `InflationItems/Codes/01_Food/Ideal` (commit `a107f1664`)
+  but is rewritten (the original also uploads to Supabase). It keeps the product id from the link
+  (`/urun/<slug>/58741`) and the image from `data-src`, and reads only the 10 top-level categories.
 
 **Beymen makes no requests.** Its listing API is disallowed by Beymen's robots.txt,
 so `beymen_specs.py` reads the names the daily inflation scraper already collected and
@@ -41,6 +65,12 @@ pip install -r scrapers/requirements.txt
 python scrapers/specs/pozitif_specs.py   # ~15 requests, ~20 s
 python scrapers/specs/samsung_specs.py   # 21 requests, ~35 s
 python scrapers/specs/beymen_specs.py    # no requests; reads the daily CSVs
+python scrapers/specs/marketzade_specs.py          # ~29 requests, ~4 min (slow server)
+python scrapers/specs/marketzade_specs.py --check  # no requests; how the latest daily file links
+python scrapers/specs/hakmar_specs.py              # ~60 requests, ~2 min
+python scrapers/specs/sariyer_specs.py             # ~400 requests, ~9 min
+python scrapers/specs/happycenter_specs.py         # ~same requests as a daily run, ~8 min
+python scrapers/specs/ideal_specs.py               # ~70 requests, ~7 min
 ```
 
 `beymen_specs.py` looks for the inflation study's `Datas` folder at
@@ -52,7 +82,10 @@ products are updated with `first_seen` kept. Products that are no longer listed
 are kept, so older price rows still join. That means it can run once or on a
 schedule to pick up new products.
 
-## Columns
+## Electronics columns
+
+Pozitif, Samsung and Beymen (`common.SPEC_FIELDS`).
+
 
 | Column | Meaning |
 |---|---|
@@ -69,6 +102,33 @@ schedule to pick up new products.
 | `url`, `image_url` | Product page and main image |
 | `attributes` | Every raw attribute the site gave, as JSON |
 | `first_seen`, `last_seen` | Dates in Istanbul time |
+
+## Grocery columns
+
+Marketzade, Hakmar, Sariyer, HappyCenter and Ideal (`common.GROCERY_FIELDS`); the electronics
+columns would always be empty for them.
+
+| Column | Meaning |
+|---|---|
+| `retailer_product_id` | The store's own product id |
+| `barcode` | EAN-8 / UPC / EAN-13 / GTIN-14 with a valid check digit: the key for matching the same product across stores. Hakmar's API gives it (95%); Marketzade (76%) and HappyCenter (25%) name many images after it (`.../8690560355218.jpg`, `.../8690504107453-F6DB8.png`); Sariyer and Ideal have only their own short codes (empty). See the note below the table |
+| `name` | Exactly as the store's daily inflation file writes it: the **join key** to the daily prices |
+| `brand` | The store's brand field (Hakmar, Marketzade), else found at the start of the name by `brands.py` (Sariyer 76%, HappyCenter 79%, Ideal 86%) |
+| `category` | The store's category path, e.g. `Kuru Gıda & İçecek > Makarna` |
+| `size` | Pack size as written in the name: `500 Gr`, `1 L`, `6x200 ml` |
+| `url`, `image_url` | Product page and main image (all five stores: 100%) |
+| `attributes` | Every raw attribute the site gave, as JSON (Marketzade, Hakmar, Sariyer) |
+| `first_seen`, `last_seen` | Dates in Istanbul time |
+
+**Barcodes from image names are a strong hint, not proof.** 194 barcodes already appear at two or more
+stores. Of the 191 such pairs where both names have a size, 24 differ: some are the same pack written
+differently (`3 X 131 Gr` / `393 Gr`), some look like real pack changes under one barcode (Knorr
+`32 Gr` / `29 Gr`), and some are wrong because a store reused another product's picture (Öncü
+*Domates* Salçası `1650 Gr` / *Tatlı Biber* Salçası `900 Gr`). Confirm a barcode match with brand and
+size; Hakmar's barcodes come from its API and are the most reliable.
+
+`brands.py` and its brand list (`brands/`) are adapted from Esra's grocery catalogue (commit `dddf328`).
+Checked against the brands Hakmar and Marketzade give, it agrees for 90–96% of products.
 
 ## Gaps
 
