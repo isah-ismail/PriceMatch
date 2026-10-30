@@ -1,0 +1,38 @@
+### Health
+GET http://127.0.0.1:8000/health
+
+### Search (relevance)
+GET http://127.0.0.1:8000/api/v1/products?q=iphone 17 pro 256&page_size=5
+
+### Search, cheapest first, with price band
+GET http://127.0.0.1:8000/api/v1/products?q=macbook&min_price=40000&max_price=60000&sort=price_asc
+
+### Products sold by one store that are in stock
+GET http://127.0.0.1:8000/api/v1/products?retailer_id=1&in_stock=true&page=1&page_size=10
+
+### Product with offers
+GET http://127.0.0.1:8000/api/v1/products/2909
+
+### Offers only, most expensive first
+GET http://127.0.0.1:8000/api/v1/products/2909/offers?sort=price_desc
+
+### Price history, 14 days
+GET http://127.0.0.1:8000/api/v1/products/2909/history?days=14
+
+### Catalog lists
+GET http://127.0.0.1:8000/api/v1/categories
+
+###
+GET http://127.0.0.1:8000/api/v1/brands
+
+###
+GET http://127.0.0.1:8000/api/v1/retailers
+
+### Errors
+GET http://127.0.0.1:8000/api/v1/products/999999
+
+###
+GET http://127.0.0.1:8000/api/v1/products?page=0
+
+###
+GET http://127.0.0.1:8000/api/v1/products?min_price=10&max_price=5

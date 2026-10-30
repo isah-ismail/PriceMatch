@@ -1,1 +1,15 @@
+# Team 03 — Database & Backend
 
+| Folder | Owner | What |
+|---|---|---|
+| [`database/`](database/README.md) | Fatima | PostgreSQL schema, migrations, ER documentation |
+| [`scripts/run_migrations.py`](scripts/run_migrations.py) | Fatima | Applies `database/migrations/*.sql` in order |
+| [`backend/`](backend/README.md) | Yake | FastAPI service: product search, offers sorted by price, price history. Contract in [`backend/API.md`](backend/API.md), hand-offs to other teams in [`backend/INTEGRATION.md`](backend/INTEGRATION.md) |
+
+Quick start:
+
+```bash
+createdb pricematch_db && python3 scripts/run_migrations.py
+cd backend && pip install -r requirements.txt && cp .env.example .env && uvicorn app.main:app --reload
+# http://127.0.0.1:8000/docs
+```
