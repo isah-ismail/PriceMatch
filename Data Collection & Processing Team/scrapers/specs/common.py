@@ -29,8 +29,8 @@ from urllib3.util.retry import Retry
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SPECS_DIR = REPO_ROOT / "data" / "specs"
-# The inflation study's daily price CSVs. Default: the study folder on the Desktop
-# next to jkjk/; set INFLATION_DATAS when it lives elsewhere.
+# The inflation study's daily price CSVs. Default: InflationResearchStudy two folders
+# above this repo; set INFLATION_DATAS when it lives elsewhere.
 INFLATION_DATAS = Path(os.environ.get("INFLATION_DATAS")
                        or REPO_ROOT.parents[1] / "InflationResearchStudy" / "InflationItems" / "Datas")
 
