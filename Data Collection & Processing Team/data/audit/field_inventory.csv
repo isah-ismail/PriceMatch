@@ -1,0 +1,269 @@
+source_group,store,file,date,field,inferred_type,recommended_type,field_role,rows,empty_cells,empty_pct,distinct,values_with_leading_zero,example
+grocery_daily,A101,a101_kapida_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,8569,0,0.0,8569,0,İthal Muz Kg
+grocery_daily,A101,a101_kapida_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,8569,0,0.0,766,0,119.50
+grocery_daily,A101,a101_kapida_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,8569,0,0.0,9,7365,01
+grocery_daily,A101,a101_kapida_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,8569,0,0.0,203,7365,0116121
+grocery_daily,Arden,arden_urunler_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,6771,0,0.0,6771,0,Akdeniz Toros Piliç Bütün Poşetli Kuru Yolum Kg
+grocery_daily,Arden,arden_urunler_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,6771,0,0.0,658,0,239.99
+grocery_daily,Arden,arden_urunler_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,6771,0,0.0,8,5261,01
+grocery_daily,Arden,arden_urunler_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,6771,0,0.0,172,5261,0112246
+grocery_daily,Basdas,basdas_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,2729,0,0.0,2729,0,Günbak Dolmalık Patlıcan Kurusu 20'li
+grocery_daily,Basdas,basdas_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,2729,0,0.0,525,0,89.95
+grocery_daily,Basdas,basdas_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,2729,0,0.0,1,0,1
+grocery_daily,Basdas,basdas_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,2729,0,0.0,12,2080,0117
+grocery_daily,Baskent,baskent_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,93,0,0.0,93,0,GLUTENSİZ SİMİT 100 GR
+grocery_daily,Baskent,baskent_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,93,0,0.0,55,0,32.50
+grocery_daily,Baskent,baskent_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,93,0,0.0,2,87,01
+grocery_daily,Baskent,baskent_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,93,0,0.0,24,87,0111399
+grocery_daily,BizimMarket,bizimtoptan_urunler_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,1578,0,0.0,1578,0,Besler Mutfak Pilavlık Bulgur 1 kg
+grocery_daily,BizimMarket,bizimtoptan_urunler_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,1578,0,0.0,454,0,38.00
+grocery_daily,BizimMarket,bizimtoptan_urunler_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,1578,0,0.0,6,1315,01
+grocery_daily,BizimMarket,bizimtoptan_urunler_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,1578,0,0.0,134,1315,0111192
+grocery_daily,Cagri,cagri_products_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,7088,0,0.0,7088,0,Mandalina kg
+grocery_daily,Cagri,cagri_products_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,7088,0,0.0,611,0,29.99
+grocery_daily,Cagri,cagri_products_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,7088,0,0.0,9,5460,01
+grocery_daily,Cagri,cagri_products_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,7088,0,0.0,192,5460,0116241
+grocery_daily,CarrefourSA,carrefourSA_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,4990,0,0.0,4981,0,Yerli Muz kg
+grocery_daily,CarrefourSA,carrefourSA_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,4990,0,0.0,1438,0,99.95
+grocery_daily,CarrefourSA,carrefourSA_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,4990,0,0.0,1,0,1
+grocery_daily,CarrefourSA,carrefourSA_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,4990,0,0.0,118,4966,011621
+grocery_daily,Gurmar,gurmar_prices_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,3437,0,0.0,3434,0,Patates - 500 Gr.
+grocery_daily,Gurmar,gurmar_prices_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,3437,0,0.0,706,0,27.45
+grocery_daily,Gurmar,gurmar_prices_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,3437,0,0.0,1,0,1
+grocery_daily,Gurmar,gurmar_prices_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,3437,0,0.0,10,1492,0117
+grocery_daily,Hakmar,hakmar_2026-10-27.csv,2026-10-27,product_name,text,text,every_row,1177,0,0.0,1177,0,Beyaz Lahana Adet
+grocery_daily,Hakmar,hakmar_2026-10-27.csv,2026-10-27,price,decimal,decimal,every_row,1177,0,0.0,275,0,79.95
+grocery_daily,Hakmar,hakmar_2026-10-27.csv,2026-10-27,category_number,integer,text (code or ID; keep leading zeros),source_dependent,1177,0,0.0,2,1162,01
+grocery_daily,Hakmar,hakmar_2026-10-27.csv,2026-10-27,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,1177,0,0.0,118,1162,0117123
+grocery_daily,Hapeloglu,hapeloglu_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,5043,0,0.0,5043,0,A Plus Çıtır Leblebi kg
+grocery_daily,Hapeloglu,hapeloglu_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,5043,0,0.0,673,0,175.00
+grocery_daily,Hapeloglu,hapeloglu_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,5043,0,0.0,9,3725,01
+grocery_daily,Hapeloglu,hapeloglu_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,5043,0,0.0,186,3725,0116897
+grocery_daily,HappyCenter,happycenter_2026-10-27.csv,2026-10-27,product_name,text,text,every_row,5862,0,0.0,5842,0,Çaykur Rize Turist Çay 1000 gr
+grocery_daily,HappyCenter,happycenter_2026-10-27.csv,2026-10-27,price,decimal,decimal,every_row,5862,0,0.0,832,0,471.65
+grocery_daily,HappyCenter,happycenter_2026-10-27.csv,2026-10-27,category_number,integer,text (code or ID; keep leading zeros),source_dependent,5862,0,0.0,2,4805,01
+grocery_daily,HappyCenter,happycenter_2026-10-27.csv,2026-10-27,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,5862,0,0.0,130,4805,0123021
+grocery_daily,Ideal,ideal_prices_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,2717,0,0.0,2717,0,Alalin Sıvı Sabun 3lt Okyanus Ferahlığı
+grocery_daily,Ideal,ideal_prices_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,2717,0,0.0,484,0,79.90
+grocery_daily,Ideal,ideal_prices_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,2717,0,0.0,8,2227,13
+grocery_daily,Ideal,ideal_prices_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,2717,0,0.0,164,2227,1312017
+grocery_daily,Kale,kalemarketleri_prices_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,2838,0,0.0,2838,0,Domates Kg
+grocery_daily,Kale,kalemarketleri_prices_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,2838,0,0.0,402,0,99.90
+grocery_daily,Kale,kalemarketleri_prices_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,2838,0,0.0,3,2823,01
+grocery_daily,Kale,kalemarketleri_prices_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,2838,0,0.0,127,2823,0117241
+grocery_daily,Kim,kim_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,2146,0,0.0,2146,0,7 DAYS FINDIKLI KRUVASAN 72 GR
+grocery_daily,Kim,kim_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,2146,0,0.0,376,0,43.50
+grocery_daily,Kim,kim_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,2146,0,0.0,8,1596,01
+grocery_daily,Kim,kim_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,2146,0,0.0,170,1596,0111392
+grocery_daily,Macrocenter,macrocenter_prices_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,7802,0,0.0,7802,0,Muz İthal Kg
+grocery_daily,Macrocenter,macrocenter_prices_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,7802,0,0.0,1587,0,159.95
+grocery_daily,Macrocenter,macrocenter_prices_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,7802,0,0.0,9,5025,01
+grocery_daily,Macrocenter,macrocenter_prices_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,7802,0,0.0,180,5025,0116121
+grocery_daily,Marketzade,marketzade_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,2802,0,0.0,2802,0,MGS Toz Şeker 5 Kg
+grocery_daily,Marketzade,marketzade_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,2802,0,0.0,841,0,410.00
+grocery_daily,Marketzade,marketzade_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,2802,0,0.0,7,2192,01
+grocery_daily,Marketzade,marketzade_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,2802,0,0.0,132,2192,0118121
+grocery_daily,Migros,migros_2026-10-25.csv,2026-10-25,product_name,text,text,every_row,3025,0,0.0,3025,0,Osmanlı Bahçesi Kekik Yetiştirme Seti
+grocery_daily,Migros,migros_2026-10-25.csv,2026-10-25,price,decimal,decimal,every_row,3025,0,0.0,1090,0,209.95
+grocery_daily,Mopas,mopas_prices_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,5600,0,0.0,5600,0,Avokado 1 Adet
+grocery_daily,Mopas,mopas_prices_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,5600,0,0.0,709,0,57.45
+grocery_daily,Mopas,mopas_prices_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,5600,0,0.0,10,4313,01
+grocery_daily,Mopas,mopas_prices_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,5600,0,0.0,190,4313,0116121
+grocery_daily,Onur,onur_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,345,0,0.0,345,0,Okey Hisset Ekonomik 20li Prezervatif
+grocery_daily,Onur,onur_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,345,0,0.0,189,0,357.39
+grocery_daily,Onur,onur_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,345,0,0.0,6,245,13
+grocery_daily,Onur,onur_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,345,0,0.0,40,245,1312022
+grocery_daily,Sariyer,sariyermarket_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,6259,0,0.0,6259,0,Patates Kg.
+grocery_daily,Sariyer,sariyermarket_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,6259,0,0.0,988,0,49.95
+grocery_daily,Sariyer,sariyermarket_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,6259,0,0.0,10,4633,01
+grocery_daily,Sariyer,sariyermarket_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,6259,0,0.0,197,4633,0117511
+grocery_daily,sehzade,sehzade_products_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,9238,0,0.0,9238,0,Colgate Diş Fırçası 360 Gold 1 + 1 Orta
+grocery_daily,sehzade,sehzade_products_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,9238,0,0.0,1176,0,439.70
+grocery_daily,sehzade,sehzade_products_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,9238,0,0.0,9,6245,13
+grocery_daily,sehzade,sehzade_products_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,9238,0,0.0,227,6245,1312002
+grocery_daily,sok_market,sok_2026-10-27.csv,2026-10-27,product_name,text,text,every_row,1607,0,0.0,1607,0,Mezzet Yaprak Sarma 300 g
+grocery_daily,sok_market,sok_2026-10-27.csv,2026-10-27,price,decimal,decimal,every_row,1607,0,0.0,361,0,85.0
+grocery_daily,sok_market,sok_2026-10-27.csv,2026-10-27,category_number,integer,text (code or ID; keep leading zeros),source_dependent,1607,0,0.0,4,1588,01
+grocery_daily,sok_market,sok_2026-10-27.csv,2026-10-27,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,1607,0,0.0,123,1588,0119195
+grocery_daily,SozSanal,soz_2026-03-31.csv,2026-03-31,product_name,text,text,every_row,4984,0,0.0,4980,0,CAKMAK TOKAI CARK
+grocery_daily,SozSanal,soz_2026-03-31.csv,2026-03-31,price,text,decimal,every_row,4984,0,0.0,651,0,"15,00"
+grocery_daily,Tarım Kredi Kooperatif,tkkoop_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,2731,0,0.0,2731,0,5 DAKİKA BİSKÜVİ
+grocery_daily,Tarım Kredi Kooperatif,tkkoop_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,2731,0,0.0,519,0,48.90
+grocery_daily,Tarım Kredi Kooperatif,tkkoop_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,2731,0,0.0,9,2065,01
+grocery_daily,Tarım Kredi Kooperatif,tkkoop_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,2731,0,0.0,195,2065,0111393
+electronics_daily,Beymen,beymen_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,11207,0,0.0,10224,0,iPhone 17 Pro Max 256GB Kozmik Turuncu
+electronics_daily,Beymen,beymen_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,11207,0,0.0,2738,0,122679.38
+electronics_daily,Beymen,beymen_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,11207,0,0.0,1,0,8
+electronics_daily,Beymen,beymen_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,11207,0,0.0,8,7455,0812002
+electronics_daily,Beymen,beymen_2026-10-29.csv,2026-10-29,UrunID,integer,text (code or ID; keep leading zeros),every_row,11207,0,0.0,11207,0,1865304
+electronics_daily,Pozitif,pozitifTeknoloji_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,1333,0,0.0,1332,0,JamfSchool for iOS &#8211; tvOS &#8211; macOS 3 Yıllık Yeni Lisans
+electronics_daily,Pozitif,pozitifTeknoloji_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,1333,0,0.0,314,0,712.66
+electronics_daily,Pozitif,pozitifTeknoloji_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,1333,0,0.0,1,0,8
+electronics_daily,Pozitif,pozitifTeknoloji_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,1333,0,0.0,7,1316,0
+electronics_daily,Pozitif,pozitifTeknoloji_2026-10-29.csv,2026-10-29,category,text,text,source_dependent,1333,9,0.68,34,0,Adaptör ve Kablo
+electronics_daily,Pozitif,pozitifTeknoloji_2026-10-29.csv,2026-10-29,regular_price,decimal,decimal,conditional,1333,0,0.0,334,0,712.66
+electronics_daily,Pozitif,pozitifTeknoloji_2026-10-29.csv,2026-10-29,sku,mixed (text 90%),text (code or ID; keep leading zeros),source_dependent,1333,0,0.0,1333,1,_Z536
+electronics_daily,Pozitif,pozitifTeknoloji_2026-10-29.csv,2026-10-29,product_id,integer,text (code or ID; keep leading zeros),every_row,1333,0,0.0,1333,0,642918
+electronics_daily,Pozitif,pozitifTeknoloji_2026-10-29.csv,2026-10-29,in_stock,boolean,boolean,source_dependent,1333,0,0.0,2,0,True
+electronics_daily,Pozitif,pozitifTeknoloji_2026-10-29.csv,2026-10-29,is_outlet,boolean,boolean,source_dependent,1333,0,0.0,2,0,False
+electronics_daily,Pozitif,pozitifTeknoloji_2026-10-29.csv,2026-10-29,categories,text,text,source_dependent,1333,9,0.68,179,0,Adaptörler > Bahçeşehir Koleji > iPad Aksesuarları > iPhone Aksesuarları > Akses
+electronics_daily,Pozitif,pozitifTeknoloji_2026-10-29.csv,2026-10-29,url,url,text,source_dependent,1333,0,0.0,1333,0,https://www.pt.com.tr/jamfschool-for-ios-tvos-macos-3-yillik-yeni-lisans
+electronics_daily,Samsung,samsung_2026-10-29.csv,2026-10-29,product_name,text,text,every_row,366,0,0.0,247,0,Galaxy A18
+electronics_daily,Samsung,samsung_2026-10-29.csv,2026-10-29,price,decimal,decimal,every_row,366,0,0.0,207,0,17999.0
+electronics_daily,Samsung,samsung_2026-10-29.csv,2026-10-29,category_number,integer,text (code or ID; keep leading zeros),source_dependent,366,0,0.0,1,0,8
+electronics_daily,Samsung,samsung_2026-10-29.csv,2026-10-29,sub_category_number,integer,text (code or ID; keep leading zeros),source_dependent,366,0,0.0,8,278,0812002
+electronics_daily,Samsung,samsung_2026-10-29.csv,2026-10-29,id,text,text (code or ID; keep leading zeros),every_row,366,0,0.0,366,0,SM-A185FLBDTUR
+electronics_daily,Samsung,samsung_2026-10-29.csv,2026-10-29,category,text,text,source_dependent,366,0,0.0,21,0,Smartphones
+spec_file,beymen,beymen_specs.csv,2026-10-28,retailer,text,text,every_row,13144,0,0.0,1,0,Beymen
+spec_file,beymen,beymen_specs.csv,2026-10-28,retailer_product_id,integer,text (code or ID; keep leading zeros),every_row,13144,0,0.0,13144,0,1998861
+spec_file,beymen,beymen_specs.csv,2026-10-28,model_code,text,text (code or ID; keep leading zeros),source_dependent,13144,9589,72.95,3071,0,MCP-10GY
+spec_file,beymen,beymen_specs.csv,2026-10-28,name,text,text,every_row,13144,0,0.0,12024,0,1.2M Ekstra Güçlü Alüminyum 240W Yüksek Hızlı Kablo Şarj ve Veri USB-C Kablosu
+spec_file,beymen,beymen_specs.csv,2026-10-28,brand,text,text,source_dependent,13144,11728,89.23,28,0,Apple
+spec_file,beymen,beymen_specs.csv,2026-10-28,category,text,text,source_dependent,13144,0,0.0,8,0,Bilgi ve iletişim aksesuarları
+spec_file,beymen,beymen_specs.csv,2026-10-28,family,text,text,conditional,13144,11498,87.48,1109,0,Alienware 16 Aurora Intel Core 7-240H
+spec_file,beymen,beymen_specs.csv,2026-10-28,color,text,text,conditional,13144,7661,58.29,70,0,Gri
+spec_file,beymen,beymen_specs.csv,2026-10-28,storage_gb,integer,decimal,conditional,13144,12316,93.7,19,0,1024
+spec_file,beymen,beymen_specs.csv,2026-10-28,ram_gb,integer,decimal,conditional,13144,12647,96.22,14,0,16
+spec_file,beymen,beymen_specs.csv,2026-10-28,screen_size_in,decimal,decimal,conditional,13144,12273,93.37,61,0,16
+spec_file,beymen,beymen_specs.csv,2026-10-28,capacity,empty,text,conditional,13144,13144,100.0,0,0,
+spec_file,beymen,beymen_specs.csv,2026-10-28,processor,empty,text,conditional,13144,13144,100.0,0,0,
+spec_file,beymen,beymen_specs.csv,2026-10-28,connectivity,empty,text,conditional,13144,13144,100.0,0,0,
+spec_file,beymen,beymen_specs.csv,2026-10-28,condition,text,text,source_dependent,13144,0,0.0,1,0,new
+spec_file,beymen,beymen_specs.csv,2026-10-28,is_bundle,boolean,boolean,conditional,13144,0,0.0,1,0,False
+spec_file,beymen,beymen_specs.csv,2026-10-28,url,url,text,source_dependent,13144,0,0.0,13144,0,https://www.beymen.com/tr/p_x_1998861
+spec_file,beymen,beymen_specs.csv,2026-10-28,image_url,empty,text,source_dependent,13144,13144,100.0,0,0,
+spec_file,beymen,beymen_specs.csv,2026-10-28,attributes,json,json,source_dependent,13144,0,0.0,8,0,"{""source"": ""name"", ""tuik_item"": ""0819201""}"
+spec_file,beymen,beymen_specs.csv,2026-10-28,first_seen,date,date,every_row,13144,0,0.0,30,0,2026-09-28
+spec_file,beymen,beymen_specs.csv,2026-10-28,last_seen,date,date,every_row,13144,0,0.0,31,0,2026-10-28
+spec_file,hakmar,hakmar_specs.csv,2026-10-30,retailer,text,text,every_row,1170,0,0.0,1,0,Hakmar
+spec_file,hakmar,hakmar_specs.csv,2026-10-30,retailer_product_id,integer,text (code or ID; keep leading zeros),every_row,1170,0,0.0,1170,0,13853
+spec_file,hakmar,hakmar_specs.csv,2026-10-30,catalog_offer_id,text,text (code or ID; keep leading zeros),source_dependent,1170,26,2.22,1144,0,HAKMAR-001175
+spec_file,hakmar,hakmar_specs.csv,2026-10-30,barcode,integer,text (code or ID; keep leading zeros),source_dependent,1170,53,4.53,1117,0,8696540190015
+spec_file,hakmar,hakmar_specs.csv,2026-10-30,name,text,text,every_row,1170,0,0.0,1170,0,Arı Mama Sütlü Pirinç Unu 500 Gr
+spec_file,hakmar,hakmar_specs.csv,2026-10-30,brand,text,text,source_dependent,1170,0,0.0,299,0,Arı Mama
+spec_file,hakmar,hakmar_specs.csv,2026-10-30,category,text,text,source_dependent,1170,0,0.0,49,0,Anne & Bebek > Bebek Maması
+spec_file,hakmar,hakmar_specs.csv,2026-10-30,tuik_code,integer,text (code or ID; keep leading zeros),source_dependent,1170,38,3.25,114,1132,0111211
+spec_file,hakmar,hakmar_specs.csv,2026-10-30,size,text,text,conditional,1170,16,1.37,286,0,500 g
+spec_file,hakmar,hakmar_specs.csv,2026-10-30,unit,text,text,conditional,1170,36,3.08,3,0,paket
+spec_file,hakmar,hakmar_specs.csv,2026-10-30,pack_quantity,integer,integer,conditional,1170,1111,94.96,11,0,6
+spec_file,hakmar,hakmar_specs.csv,2026-10-30,variant,text,text,conditional,1170,986,84.27,26,0,sade
+spec_file,hakmar,hakmar_specs.csv,2026-10-30,data_quality_status,text,text,source_dependent,1170,26,2.22,2,0,clean
+spec_file,hakmar,hakmar_specs.csv,2026-10-30,url,url,text,source_dependent,1170,0,0.0,1170,0,https://www.hakmarexpress.com.tr/ari-mama-sutlu-pirinc-unu-500-gr-1000634-p
+spec_file,hakmar,hakmar_specs.csv,2026-10-30,image_url,url,text,source_dependent,1170,0,0.0,1170,0,https://eticaret.s3.us-east-1.amazonaws.com/thumbnail/ari-mama-ari-sutlu-pirinc-
+spec_file,hakmar,hakmar_specs.csv,2026-10-30,attributes,json,json,source_dependent,1170,0,0.0,1170,0,"{""barcode"": ""8696540190015"", ""packageWeight"": 1.0, ""unitCode"": ""adet""}"
+spec_file,hakmar,hakmar_specs.csv,2026-10-30,first_seen,date,date,every_row,1170,0,0.0,1,0,2026-10-30
+spec_file,hakmar,hakmar_specs.csv,2026-10-30,last_seen,date,date,every_row,1170,0,0.0,1,0,2026-10-30
+spec_file,happycenter,happycenter_specs.csv,2026-10-30,retailer,text,text,every_row,5872,0,0.0,1,0,HappyCenter
+spec_file,happycenter,happycenter_specs.csv,2026-10-30,retailer_product_id,integer,text (code or ID; keep leading zeros),every_row,5872,0,0.0,5872,0,62045
+spec_file,happycenter,happycenter_specs.csv,2026-10-30,catalog_offer_id,text,text (code or ID; keep leading zeros),source_dependent,5872,94,1.6,5772,0,HAPPYCENTER-003379
+spec_file,happycenter,happycenter_specs.csv,2026-10-30,barcode,integer,text (code or ID; keep leading zeros),source_dependent,5872,4406,75.03,1466,0,8683181332959
+spec_file,happycenter,happycenter_specs.csv,2026-10-30,name,text,text,every_row,5872,0,0.0,5852,0,Chipsm Baharat Kinoalı Mısır Cips 70 Gr
+spec_file,happycenter,happycenter_specs.csv,2026-10-30,brand,text,text,source_dependent,5872,1213,20.66,303,0,Chipsm
+spec_file,happycenter,happycenter_specs.csv,2026-10-30,category,text,text,source_dependent,5872,0,0.0,142,0,Kuru Gıda > Atıştırmalık > Atıştırmalık Çerez > Cipsler
+spec_file,happycenter,happycenter_specs.csv,2026-10-30,tuik_code,integer,text (code or ID; keep leading zeros),source_dependent,5872,1137,19.36,125,4735,0117998
+spec_file,happycenter,happycenter_specs.csv,2026-10-30,size,text,text,conditional,5872,372,6.34,649,0,70 g
+spec_file,happycenter,happycenter_specs.csv,2026-10-30,unit,text,text,conditional,5872,314,5.35,3,0,paket
+spec_file,happycenter,happycenter_specs.csv,2026-10-30,pack_quantity,integer,integer,conditional,5872,5515,93.92,20,0,2
+spec_file,happycenter,happycenter_specs.csv,2026-10-30,variant,text,text,conditional,5872,4966,84.57,38,0,sade
+spec_file,happycenter,happycenter_specs.csv,2026-10-30,data_quality_status,text,text,source_dependent,5872,92,1.57,2,0,clean
+spec_file,happycenter,happycenter_specs.csv,2026-10-30,url,url,text,source_dependent,5872,0,0.0,5864,0,https://www.happycenter.com.tr/chipsm--baharat-kinoali-misir-cips-70-gr
+spec_file,happycenter,happycenter_specs.csv,2026-10-30,image_url,url,text,source_dependent,5872,0,0.0,5872,0,https://static.happycenter.com.tr/Uploads/8683181332959-A9DA1.png
+spec_file,happycenter,happycenter_specs.csv,2026-10-30,attributes,json,json,source_dependent,5872,0,0.0,1,0,{}
+spec_file,happycenter,happycenter_specs.csv,2026-10-30,first_seen,date,date,every_row,5872,0,0.0,1,0,2026-10-30
+spec_file,happycenter,happycenter_specs.csv,2026-10-30,last_seen,date,date,every_row,5872,0,0.0,1,0,2026-10-30
+spec_file,ideal,ideal_specs.csv,2026-10-30,retailer,text,text,every_row,2723,0,0.0,1,0,Ideal
+spec_file,ideal,ideal_specs.csv,2026-10-30,retailer_product_id,integer,text (code or ID; keep leading zeros),every_row,2723,0,0.0,2723,0,81581
+spec_file,ideal,ideal_specs.csv,2026-10-30,catalog_offer_id,text,text (code or ID; keep leading zeros),source_dependent,2723,164,6.02,2559,0,IDEAL-001293
+spec_file,ideal,ideal_specs.csv,2026-10-30,barcode,empty,text (code or ID; keep leading zeros),source_dependent,2723,2723,100.0,0,0,
+spec_file,ideal,ideal_specs.csv,2026-10-30,name,text,text,every_row,2723,0,0.0,2723,0,Beyoğlu Dubai Çikolatası 35gr
+spec_file,ideal,ideal_specs.csv,2026-10-30,brand,text,text,source_dependent,2723,371,13.62,277,0,Beyoğlu
+spec_file,ideal,ideal_specs.csv,2026-10-30,category,text,text,source_dependent,2723,0,0.0,10,0,Atıştırmalıklar
+spec_file,ideal,ideal_specs.csv,2026-10-30,tuik_code,integer,text (code or ID; keep leading zeros),source_dependent,2723,393,14.43,163,2083,0118512
+spec_file,ideal,ideal_specs.csv,2026-10-30,size,text,text,conditional,2723,245,9.0,479,0,35 g
+spec_file,ideal,ideal_specs.csv,2026-10-30,unit,text,text,conditional,2723,313,11.49,3,0,paket
+spec_file,ideal,ideal_specs.csv,2026-10-30,pack_quantity,integer,integer,conditional,2723,2606,95.7,15,0,3
+spec_file,ideal,ideal_specs.csv,2026-10-30,variant,text,text,conditional,2723,2411,88.54,24,0,karamelli
+spec_file,ideal,ideal_specs.csv,2026-10-30,data_quality_status,text,text,source_dependent,2723,164,6.02,2,0,clean
+spec_file,ideal,ideal_specs.csv,2026-10-30,url,url,text,source_dependent,2723,0,0.0,2723,0,https://www.ideal.com.tr/urun/beyoglu-dubai-cikolatasi-35gr/81581
+spec_file,ideal,ideal_specs.csv,2026-10-30,image_url,url,text,source_dependent,2723,1,0.04,2722,0,https://www.ideal.com.tr/api/image/81581.jpeg?fit=150
+spec_file,ideal,ideal_specs.csv,2026-10-30,attributes,json,json,source_dependent,2723,0,0.0,1,0,{}
+spec_file,ideal,ideal_specs.csv,2026-10-30,first_seen,date,date,every_row,2723,0,0.0,1,0,2026-10-30
+spec_file,ideal,ideal_specs.csv,2026-10-30,last_seen,date,date,every_row,2723,0,0.0,1,0,2026-10-30
+spec_file,marketzade,marketzade_specs.csv,2026-10-30,retailer,text,text,every_row,2817,0,0.0,1,0,Marketzade
+spec_file,marketzade,marketzade_specs.csv,2026-10-30,retailer_product_id,integer,text (code or ID; keep leading zeros),every_row,2817,0,0.0,2817,0,20381
+spec_file,marketzade,marketzade_specs.csv,2026-10-30,catalog_offer_id,text,text (code or ID; keep leading zeros),source_dependent,2817,148,5.25,2665,0,MARKETZADE-000304
+spec_file,marketzade,marketzade_specs.csv,2026-10-30,barcode,integer,text (code or ID; keep leading zeros),source_dependent,2817,690,24.49,2121,0,8691573099564
+spec_file,marketzade,marketzade_specs.csv,2026-10-30,name,text,text,every_row,2817,0,0.0,2810,0,Kavrulmuş Fındık İçi
+spec_file,marketzade,marketzade_specs.csv,2026-10-30,brand,text,text,source_dependent,2817,65,2.31,327,0,Kuruyemiş
+spec_file,marketzade,marketzade_specs.csv,2026-10-30,category,text,text,source_dependent,2817,4,0.14,248,0,Acı Sos
+spec_file,marketzade,marketzade_specs.csv,2026-10-30,tuik_code,integer,text (code or ID; keep leading zeros),source_dependent,2817,282,10.01,129,2113,0119396
+spec_file,marketzade,marketzade_specs.csv,2026-10-30,size,text,text,conditional,2817,222,7.88,521,0,100 ml
+spec_file,marketzade,marketzade_specs.csv,2026-10-30,unit,text,text,conditional,2817,350,12.42,2,0,paket
+spec_file,marketzade,marketzade_specs.csv,2026-10-30,pack_quantity,integer,integer,conditional,2817,2711,96.24,18,0,4
+spec_file,marketzade,marketzade_specs.csv,2026-10-30,variant,text,text,conditional,2817,2552,90.59,28,0,ballı
+spec_file,marketzade,marketzade_specs.csv,2026-10-30,data_quality_status,text,text,source_dependent,2817,148,5.25,2,0,clean
+spec_file,marketzade,marketzade_specs.csv,2026-10-30,url,url,text,source_dependent,2817,0,0.0,2815,0,https://marketzade.com/kavrulmus-findik-ici-1-kg/?attribute_pa_miktar=250-gr
+spec_file,marketzade,marketzade_specs.csv,2026-10-30,image_url,url,text,source_dependent,2817,2,0.07,2618,0,https://marketzade.com/wp-content/uploads/2024/02/2908256.jpg
+spec_file,marketzade,marketzade_specs.csv,2026-10-30,attributes,json,json,source_dependent,2817,0,0.0,2817,0,"{""sku"": ""73135-1""}"
+spec_file,marketzade,marketzade_specs.csv,2026-10-30,first_seen,date,date,every_row,2817,0,0.0,1,0,2026-10-30
+spec_file,marketzade,marketzade_specs.csv,2026-10-30,last_seen,date,date,every_row,2817,0,0.0,1,0,2026-10-30
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,retailer,text,text,every_row,1334,0,0.0,1,0,Pozitif
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,retailer_product_id,integer,text (code or ID; keep leading zeros),every_row,1334,0,0.0,1334,0,367283
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,model_code,mixed (text 89%),text (code or ID; keep leading zeros),source_dependent,1334,0,0.0,1287,1,MXP93TU/A
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,name,text,text,every_row,1334,0,0.0,1333,0,AirPods 4 Aktif Gürültü Önleme MXP93TU/A
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,brand,text,text,source_dependent,1334,11,0.82,27,0,Apple
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,category,text,text,source_dependent,1334,0,0.0,109,0,AirPods > AirPods 4
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,family,empty,text,conditional,1334,1334,100.0,0,0,
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,color,text,text,conditional,1334,271,20.31,91,0,Beyaz
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,storage_gb,integer,decimal,conditional,1334,806,60.42,21,0,32
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,ram_gb,integer,decimal,conditional,1334,1194,89.51,10,0,32
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,screen_size_in,decimal,decimal,conditional,1334,996,74.66,18,0,32
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,capacity,empty,text,conditional,1334,1334,100.0,0,0,
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,processor,text,text,conditional,1334,1208,90.55,15,0,M1 Max
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,connectivity,text,text,conditional,1334,994,74.51,4,0,GPS + Cellular
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,condition,text,text,source_dependent,1334,0,0.0,3,0,new
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,is_bundle,boolean,boolean,conditional,1334,0,0.0,2,0,False
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,url,url,text,source_dependent,1334,0,0.0,1334,0,https://www.pt.com.tr/airpods-4-aktif-gurultu-onleme-mxp93tu-a
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,image_url,url,text,source_dependent,1334,0,0.0,824,0,https://www.pt.com.tr/wp-content/uploads/2024/09/AirPods_4_with_Active_Noise_Can
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,attributes,json,json,source_dependent,1334,0,0.0,1035,0,"{""Arama Kriteri"": ""Apple, Kulak içi, Kulaklık"", ""Kargo Verilme Süresi"": ""1 - 2 İ"
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,first_seen,date,date,every_row,1334,0,0.0,1,0,2026-10-28
+spec_file,pozitif,pozitif_specs.csv,2026-10-28,last_seen,date,date,every_row,1334,0,0.0,1,0,2026-10-28
+spec_file,samsung,samsung_specs.csv,2026-10-28,retailer,text,text,every_row,1389,0,0.0,1,0,Samsung
+spec_file,samsung,samsung_specs.csv,2026-10-28,retailer_product_id,text,text (code or ID; keep leading zeros),every_row,1389,0,0.0,1389,0,AJ068TXJ3KH/EA
+spec_file,samsung,samsung_specs.csv,2026-10-28,model_code,text,text (code or ID; keep leading zeros),source_dependent,1389,0,0.0,1389,0,AJ068TXJ3KH/EA
+spec_file,samsung,samsung_specs.csv,2026-10-28,name,text,text,every_row,1389,0,0.0,782,0,WindFree Duvar Tipi Multi Split Klima 12000 BTU + 18000 BTU
+spec_file,samsung,samsung_specs.csv,2026-10-28,brand,text,text,source_dependent,1389,0,0.0,1,0,Samsung
+spec_file,samsung,samsung_specs.csv,2026-10-28,category,text,text,source_dependent,1389,0,0.0,79,0,Air Conditioners > Multi Split Klimalar
+spec_file,samsung,samsung_specs.csv,2026-10-28,family,text,text,conditional,1389,0,0.0,580,0,FJM with R410 Refrigerant
+spec_file,samsung,samsung_specs.csv,2026-10-28,color,text,text,conditional,1389,245,17.64,129,0,Beyaz
+spec_file,samsung,samsung_specs.csv,2026-10-28,storage_gb,integer,decimal,conditional,1389,938,67.53,11,0,128
+spec_file,samsung,samsung_specs.csv,2026-10-28,ram_gb,empty,decimal,conditional,1389,1389,100.0,0,0,
+spec_file,samsung,samsung_specs.csv,2026-10-28,screen_size_in,integer,decimal,conditional,1389,1155,83.15,22,0,55
+spec_file,samsung,samsung_specs.csv,2026-10-28,capacity,text,text,conditional,1389,1304,93.88,38,0,12000 BTU/h + 18000 BTU/h
+spec_file,samsung,samsung_specs.csv,2026-10-28,processor,empty,text,conditional,1389,1389,100.0,0,0,
+spec_file,samsung,samsung_specs.csv,2026-10-28,connectivity,empty,text,conditional,1389,1389,100.0,0,0,
+spec_file,samsung,samsung_specs.csv,2026-10-28,condition,text,text,source_dependent,1389,0,0.0,1,0,new
+spec_file,samsung,samsung_specs.csv,2026-10-28,is_bundle,boolean,boolean,conditional,1389,0,0.0,2,0,False
+spec_file,samsung,samsung_specs.csv,2026-10-28,url,url,text,source_dependent,1389,0,0.0,1238,0,https://www.samsung.com/tr/system-air-conditioners/free-joint-multi/ajf600e-aj05
+spec_file,samsung,samsung_specs.csv,2026-10-28,image_url,url,text,source_dependent,1389,0,0.0,1389,0,https://images.samsung.com/is/image/samsung/p6pim/tr/aj068txj3kh-ea/gallery/tr--
+spec_file,samsung,samsung_specs.csv,2026-10-28,attributes,json,json,source_dependent,1389,0,0.0,1364,0,"{""AIR CONDITIONER COOLING CAPACITY"": ""12000 BTU/h + 18000 BTU/h"", ""COLOR"": ""Beya"
+spec_file,samsung,samsung_specs.csv,2026-10-28,first_seen,date,date,every_row,1389,0,0.0,1,0,2026-10-28
+spec_file,samsung,samsung_specs.csv,2026-10-28,last_seen,date,date,every_row,1389,0,0.0,1,0,2026-10-28
+spec_file,sariyer,sariyer_specs.csv,2026-10-30,retailer,text,text,every_row,6227,0,0.0,1,0,Sariyer
+spec_file,sariyer,sariyer_specs.csv,2026-10-30,retailer_product_id,integer,text (code or ID; keep leading zeros),every_row,6227,0,0.0,6227,0,38780
+spec_file,sariyer,sariyer_specs.csv,2026-10-30,catalog_offer_id,text,text (code or ID; keep leading zeros),source_dependent,6227,100,1.61,6123,0,SARIYER-005889
+spec_file,sariyer,sariyer_specs.csv,2026-10-30,barcode,empty,text (code or ID; keep leading zeros),source_dependent,6227,6227,100.0,0,0,
+spec_file,sariyer,sariyer_specs.csv,2026-10-30,name,text,text,every_row,6227,0,0.0,6223,0,Aquatic 1010 Bağ Budama Makasi Büyük
+spec_file,sariyer,sariyer_specs.csv,2026-10-30,brand,text,text,source_dependent,6227,1467,23.56,512,0,Bestway
+spec_file,sariyer,sariyer_specs.csv,2026-10-30,category,text,text,source_dependent,6227,0,0.0,14,0,Bahçe Malzemeleri
+spec_file,sariyer,sariyer_specs.csv,2026-10-30,tuik_code,integer,text (code or ID; keep leading zeros),source_dependent,6227,1044,16.77,195,4537,0540301
+spec_file,sariyer,sariyer_specs.csv,2026-10-30,size,text,text,conditional,6227,1370,22.0,663,0,"1,2 L"
+spec_file,sariyer,sariyer_specs.csv,2026-10-30,unit,text,text,conditional,6227,1201,19.29,3,0,paket
+spec_file,sariyer,sariyer_specs.csv,2026-10-30,pack_quantity,integer,integer,conditional,6227,5929,95.21,21,0,6
+spec_file,sariyer,sariyer_specs.csv,2026-10-30,variant,text,text,conditional,6227,5586,89.71,41,0,ballı
+spec_file,sariyer,sariyer_specs.csv,2026-10-30,data_quality_status,text,text,source_dependent,6227,96,1.54,2,0,clean
+spec_file,sariyer,sariyer_specs.csv,2026-10-30,url,url,text,source_dependent,6227,0,0.0,6227,0,https://www.sariyermarket.com/aquatic-1010-bag-budama-makasi-buyuk
+spec_file,sariyer,sariyer_specs.csv,2026-10-30,image_url,url,text,source_dependent,6227,0,0.0,6227,0,https://www.sariyermarket.com/images/thumbs/0017188_aquatic-1010-bag-budama-maka
+spec_file,sariyer,sariyer_specs.csv,2026-10-30,attributes,json,json,source_dependent,6227,0,0.0,6227,0,"{""sku"": ""13407""}"
+spec_file,sariyer,sariyer_specs.csv,2026-10-30,first_seen,date,date,every_row,6227,0,0.0,1,0,2026-10-30
+spec_file,sariyer,sariyer_specs.csv,2026-10-30,last_seen,date,date,every_row,6227,0,0.0,1,0,2026-10-30

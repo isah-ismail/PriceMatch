@@ -27,6 +27,8 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
+import brands
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SPECS_DIR = REPO_ROOT / "data" / "specs"
 # The inflation study's daily price CSVs. Default: InflationResearchStudy two folders
@@ -64,14 +66,21 @@ SPEC_FIELDS = [
 ]
 
 # Grocery stores write a shorter set: the electronics columns are always empty for them.
+# Columns marked * come from Esra's catalog (catalog.py) when the name is in it.
 GROCERY_FIELDS = [
     "retailer",
     "retailer_product_id",  # the store's own id
+    "catalog_offer_id",     # * Esra's offer_id for the same listing ("IDEAL-000123")
     "barcode",              # EAN-13 / EAN-8 / UPC, the cross-store matching key; '' when the store has none
     "name",                 # exactly as the store's daily inflation file writes it (the join key)
-    "brand",
+    "brand",                # * one spelling per brand (brands.canonical)
     "category",             # store's category path, "A > B"
-    "size",                 # pack size as written in the name: "500 Gr", "1 L", "6x200 ml"
+    "tuik_code",            # * TÜİK 2026 CPI item code, the same categories for every store
+    "size",                 # * standardized ("500 g", "1,5 kg", "4 x 70 g"); else as written in the name
+    "unit",                 # * paket / kg / adet
+    "pack_quantity",        # * items in the pack ("4" for "4 x 70 g")
+    "variant",              # * fat level, laktozsuz, organik, flavour
+    "data_quality_status",  # * clean / needs_review (see Esra's data_quality_report.md)
     "url",
     "image_url",
     "attributes",           # every raw attribute the site gave, as JSON
@@ -147,6 +156,8 @@ def merge_and_save(retailer, rows, fields=SPEC_FIELDS):
     added = updated = 0
     for row in rows:
         row = {k: ("" if row.get(k) is None else row[k]) for k in fields}
+        if "brand" in row:
+            row["brand"] = brands.canonical(row["brand"])
         if isinstance(row["attributes"], dict):
             row["attributes"] = json.dumps(row["attributes"], ensure_ascii=False, sort_keys=True)
         key = str(row["retailer_product_id"])
@@ -164,7 +175,8 @@ def merge_and_save(retailer, rows, fields=SPEC_FIELDS):
     SPECS_DIR.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(".csv.part")
     with open(tmp, "w", newline="", encoding="utf-8-sig") as f:
-        writer = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
+        # "\n" line endings like the committed files; csv's default "\r\n" would rewrite every line
+        writer = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore", lineterminator="\n")
         writer.writeheader()
         writer.writerows(sorted(existing.values(), key=lambda r: (r["category"], r["name"], r["retailer_product_id"])))
     tmp.replace(path)

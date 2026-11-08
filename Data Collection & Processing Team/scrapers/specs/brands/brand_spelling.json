@@ -1,0 +1,11 @@
+{
+  "description": "One spelling per brand, for brands whose spelling Esra's catalog does not settle (absent there, or written differently from the brand's own name). Keys are folded with brands.fold().",
+  "spelling": {
+    "ece": "Ece",
+    "happylife": "Happylife",
+    "hp": "HP",
+    "ideal": "İdeal",
+    "jbl": "JBL",
+    "mehmet efendi": "Mehmet Efendi"
+  }
+}

@@ -3,7 +3,7 @@
 Daily **prices** come from the inflation study's scrapers
 (`InflationResearchStudy/InflationItems/Datas`). These scrapers collect what
 each product **is** (brand, colour, storage, RAM, screen size, condition, link,
-image) and write it to `data/specs/<retailer>_specs.csv`.
+image) and write it to `data/specs/<retailer>_specs_clean.csv`.
 
 Each price row is joined to its variant through the retailer's own product id:
 
@@ -22,11 +22,6 @@ On 2026-10-28 the joins were: Pozitif 1333/1347, Samsung 343/348, Beymen 11212/1
 On 2026-10-30, by name: Marketzade 2794/2802, Hakmar 1147/1177 (its latest daily file is from
 2026-10-27; the misses are fresh produce no longer listed), Sariyer 6150/6208, HappyCenter 5826/5862
 (2026-10-27 file; 34 names are used for two products), Ideal 2719/2719.
-
-**Groceries link by name.** Since 2026-10-26 the grocery daily files have no id, so a price row is
-linked through its name. Each grocery scraper cleans names exactly like that store's daily scraper does,
-so the same product has the same name in both files (`common.check_name_join` measures it). A name that matches several ids is ambiguous and
-must not be linked. Grocery files have their own columns (see [Grocery columns](#grocery-columns)).
 
 **Code reused from the inflation study.** Each copy says where it came from and what changed:
 
@@ -73,9 +68,10 @@ python scrapers/specs/happycenter_specs.py         # ~same requests as a daily r
 python scrapers/specs/ideal_specs.py               # ~70 requests, ~7 min
 ```
 
-`beymen_specs.py` looks for the inflation study's `Datas` folder at
-`Desktop/InflationResearchStudy/InflationItems/Datas` (next to `jkjk/`). If yours is
-elsewhere, pass `--datas <path>` or set `INFLATION_DATAS`.
+`beymen_specs.py` and the grocery scripts' `--check` read the inflation study's `Datas`
+folder. By default they look two folders above this repo
+(`<that folder>/InflationResearchStudy/InflationItems/Datas`). If yours is elsewhere, set
+`INFLATION_DATAS` (or pass `--datas <path>` to `beymen_specs.py`).
 
 A run **merges** into the existing CSV. New products are added, and known
 products are updated with `first_seen` kept. Products that are no longer listed
@@ -111,11 +107,15 @@ columns would always be empty for them.
 | Column | Meaning |
 |---|---|
 | `retailer_product_id` | The store's own product id |
+| `catalog_offer_id` ★ | Esra's `offer_id` for the same listing (`HAKMAR-001175`): maps her ids to the store's ids |
 | `barcode` | EAN-8 / UPC / EAN-13 / GTIN-14 with a valid check digit: the key for matching the same product across stores. Hakmar's API gives it (95%); Marketzade (76%) and HappyCenter (25%) name many images after it (`.../8690560355218.jpg`, `.../8690504107453-F6DB8.png`); Sariyer and Ideal have only their own short codes (empty). See the note below the table |
 | `name` | Exactly as the store's daily inflation file writes it: the **join key** to the daily prices |
-| `brand` | The store's brand field (Hakmar, Marketzade), else found at the start of the name by `brands.py` (Sariyer 76%, HappyCenter 79%, Ideal 86%) |
+| `brand` ★ | Esra's brand; else the store's brand field (Hakmar, Marketzade), else found at the start of the name by `brands.py` (Sariyer 76%, HappyCenter 79%, Ideal 86%). Always one spelling per brand (`brands.canonical`) |
 | `category` | The store's category path, e.g. `Kuru Gıda & İçecek > Makarna` |
-| `size` | Pack size as written in the name: `500 Gr`, `1 L`, `6x200 ml` |
+| `tuik_code` ★ | TÜİK 2026 CPI item code (`0111211`): the same categories for every store (81–97%) |
+| `size` ★ | Standardized size (`500 g`, `1,5 kg`, `4 x 70 g`); for names not in the catalog, as written in the name (`500 Gr`) |
+| `unit` ★, `pack_quantity` ★, `variant` ★ | `paket` / `kg` / `adet`; items in the pack; fat level, laktozsuz, organik, flavour |
+| `data_quality_status` ★ | `clean` or `needs_review` (5–30 rows per store; reasons in Esra's catalog) |
 | `url`, `image_url` | Product page and main image (all five stores: 100%) |
 | `attributes` | Every raw attribute the site gave, as JSON (Marketzade, Hakmar, Sariyer) |
 | `first_seen`, `last_seen` | Dates in Istanbul time |
@@ -126,6 +126,15 @@ differently (`3 X 131 Gr` / `393 Gr`), some look like real pack changes under on
 `32 Gr` / `29 Gr`), and some are wrong because a store reused another product's picture (Öncü
 *Domates* Salçası `1650 Gr` / *Tatlı Biber* Salçası `900 Gr`). Confirm a barcode match with brand and
 size; Hakmar's barcodes come from its API and are the most reliable.
+
+★ Taken from Esra's cleaned catalog (`data/groceries/pricematch/pricematch_cleaned_all_markets.csv`) by
+`catalog.py`, when the name appears once for the store there: 94–98% of rows. Rows not in her catalog
+(new since her snapshot) have an empty `catalog_offer_id` and keep our own brand and size.
+
+**One spelling per brand.** Every spec file, electronics too, is saved through `brands.canonical()`:
+`PAKMAYA` / `Pakmaya` → `Pakmaya`, `Frıskıes` → `Friskies`. The spelling comes from
+`brands/brand_spelling.json` (abbreviations such as `HP`, `JBL`, and brands Esra's catalog does not have),
+else from Esra's catalog.
 
 `brands.py` and its brand list (`brands/`) are adapted from Esra's grocery catalogue (commit `dddf328`).
 Checked against the brands Hakmar and Marketzade give, it agrees for 90–96% of products.

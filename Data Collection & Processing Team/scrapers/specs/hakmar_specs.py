@@ -29,6 +29,7 @@ from urllib.parse import quote
 import requests
 
 import brands
+import catalog
 import common
 
 SITE_URL = "https://www.hakmarexpress.com.tr"
@@ -192,6 +193,7 @@ def main():
         if card.get("id") and card.get("name") and card["id"] not in seen:
             seen.add(card["id"])
             rows.append(to_spec(category_path, card))
+    log.info("%d of %d found in Esra's catalog", catalog.enrich("Hakmar", rows), len(rows))
     path, added, updated, kept = common.merge_and_save("Hakmar", rows, common.GROCERY_FIELDS)
     log.info("%s: %d new, %d updated, %d no longer listed (kept)", path, added, updated, kept)
     common.check_name_join("Hakmar", "Hakmar", "hakmar")

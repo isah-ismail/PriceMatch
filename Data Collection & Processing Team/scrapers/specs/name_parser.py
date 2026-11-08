@@ -84,7 +84,17 @@ SAMSUNG_CODE_RE = re.compile(r"\b(?:SM|EF|EP|ET|EB|GP)-[A-Z0-9]{4,}\b")
 CODE_TOKEN_RE = re.compile(r"^(?=.*\d)(?=.*[A-Z])[A-Z0-9][A-Z0-9\-/]{4,}$")
 NOT_A_CODE_RE = re.compile(
     r"^(RTX|GTX|RX|DDR|LPDDR|GDDR|USB|HDMI|WIFI|PS\d|W\d+$|S\d\d$|M\d)"
-    r"|^\d+(GB|TB|MB|MHZ|GHZ|HZ|W|MAH|MP|MM|CM|K|FPS|NIT|NITS)$")
+    r"|^\d+(GB|TB|MB|MHZ|GHZ|HZ|W|MAH|MP|MM|CM|K|FPS|NIT|NITS)$"
+    # Specs that look like codes (found in Beymen's names of 2026-10-28):
+    r"|^\d+(SSD|D)$"                          # 512SSD; 1500D (fabric: "Aramid Fiber 1500D")
+    r"|^\d{3,4}P$|^\dK(/\d+(FPS)?)?$"         # 1080P; 4K/30, 4K/60FPS
+    r"|^(HDR|HEPA|AX)\d+$"                    # HDR10, HEPA13, AX1800 (Wi-Fi speed)
+    r"|^\d+-\d+W$"                            # 9-75W (bulb wattage)
+    # Processors: 275HX, 8940HX, 13420H, 7-7435HS, 7-155H, 9-275HX, I5-14400, I7-14650HX.
+    # Not 4-digit + H alone: Dustrider 1255H is a real (vacuum) model.
+    r"|^I\d-\d{4,5}[A-Z]{0,2}$|^\d-\d{3,5}[A-Z]{1,2}$|^\d{3,5}(HX|HS)$|^\d{5}(H|U)$"
+    # Lenovo laptop lines, the same for every RAM / SSD version: 15AHP10, 15IRX10, 16IRH10, 15IAX9
+    r"|^1[3-8][A-Z]{3}\d{1,2}$")
 
 
 def model_code(name):

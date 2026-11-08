@@ -1,1 +1,132 @@
+Product Matching & Hierarchy
+
+Project Overview:
+
+This module focuses on the Product Matching & Hierarchy Problem within the PriceMatch project.
+
+The objective is to develop a system capable of cleaning, normalizing, categorizing, and matching product records collected from different online retailers.
+
+Because retailers often use different naming conventions, product descriptions, and category structures, identifying identical products across multiple datasets presents a significant challenge.
+
+This module investigates data preprocessing, product normalization, hierarchy-based filtering, and machine-learning techniques to improve the accuracy and reliability of product matching.
+
+Project Objectives:
+
+- Clean and prepare product datasets collected from different retailers.
+
+- Normalize product names, brands, model numbers, and category information.
+
+- Establish a consistent product hierarchy for comparing products.
+
+- Identify potential matching products across different stores.
+
+- Develop and evaluate a product-matching algorithm.
+
+- Measure matching performance using accuracy, precision, recall, and F1 score.
+
+Main Components:
+
+1. Data Cleaning — data_cleaning.py
+
+- Responsible for preparing raw product datasets.
+
+- Planned operations include:
+
+- Detecting and handling missing values
+
+- Removing duplicate records
+
+- Validating product names and prices
+
+- Correcting inconsistent data formats
+
+- Preparing cleaned datasets for normalization
+
+2. Data Normalization — data_normalization.py
+
+Responsible for transforming cleaned product records into a consistent representation.
+
+Planned operations include:
+
+- Standardizing product names
+
+- Normalizing capitalization and whitespace
+
+- Handling punctuation and special characters
+
+- Standardizing brand names
+
+- Extracting model numbers and relevant attributes
+
+- Standardizing category and subcategory identifiers
+
+3. Product Matching and Machine Learning — matching_ml.py
+
+Responsible for identifying products that represent the same item across different retailers.
+
+Planned operations include:
+
+- Generating candidate product pairs
+
+- Applying category and hierarchy-based filtering
+
+- Calculating product-name similarity
+
+- Comparing brands, model numbers, and other available attributes
+
+- Training a supervised matching model using labeled product pairs
+
+- Classifying matching and non-matching products
+
+- Evaluating matching performance
+
+The initial matching approach may combine rule-based techniques with machine learning.
+
+Evaluation Metrics:
+
+The matching algorithm will be evaluated using manually labeled examples of matching and non-matching products, such as:
+
+- Metric
+
+- Purpose
+
+- Accuracy
+
+- Percentage of correctly classified product pairs
+
+- Precision
+
+- Proportion of predicted matches that are correct
+
+- Recall
+
+- Proportion of actual matches successfully identified
+
+- F1 Score
+
+- Harmonic mean of precision and recall
+
+Precision and recall will be especially important because product-matching datasets may contain substantially more non-matching pairs than matching pairs.
+
+Proposed Technologies:
+
+- Python
+
+- Pandas
+
+- NumPy
+
+- RapidFuzz
+
+- Scikit-learn
+
+Current Status:
+
+1- Initial development and prototype planning.
+
+2- Implement a machine-learning matching model.
+
+3- Evaluate accuracy, precision, recall, and F1 score.
+
+4- Test the complete pipeline using retailer datasets.
 
