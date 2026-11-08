@@ -1,8 +1,6 @@
 Product Matching & Hierarchy
 
-Senior Project 401 — PriceMatch
-
-Project Overview
+Project Overview:
 
 This module focuses on the Product Matching & Hierarchy Problem within the PriceMatch project.
 
@@ -12,37 +10,37 @@ Because retailers often use different naming conventions, product descriptions, 
 
 This module investigates data preprocessing, product normalization, hierarchy-based filtering, and machine-learning techniques to improve the accuracy and reliability of product matching.
 
-Project Objectives
+Project Objectives:
 
-Clean and prepare product datasets collected from different retailers.
+- Clean and prepare product datasets collected from different retailers.
 
-Normalize product names, brands, model numbers, and category information.
+- Normalize product names, brands, model numbers, and category information.
 
-Establish a consistent product hierarchy for comparing products.
+- Establish a consistent product hierarchy for comparing products.
 
-Identify potential matching products across different stores.
+- Identify potential matching products across different stores.
 
-Develop and evaluate a product-matching algorithm.
+- Develop and evaluate a product-matching algorithm.
 
-Measure matching performance using accuracy, precision, recall, and F1 score.
+- Measure matching performance using accuracy, precision, recall, and F1 score.
 
-Main Components
+Main Components:
 
 1. Data Cleaning — data_cleaning.py
 
-Responsible for preparing raw product datasets.
+- Responsible for preparing raw product datasets.
 
-Planned operations include:
+- Planned operations include:
 
-Detecting and handling missing values
+- Detecting and handling missing values
 
-Removing duplicate records
+- Removing duplicate records
 
-Validating product names and prices
+- Validating product names and prices
 
-Correcting inconsistent data formats
+- Correcting inconsistent data formats
 
-Preparing cleaned datasets for normalization
+- Preparing cleaned datasets for normalization
 
 2. Data Normalization — data_normalization.py
 
@@ -50,17 +48,17 @@ Responsible for transforming cleaned product records into a consistent represent
 
 Planned operations include:
 
-Standardizing product names
+- Standardizing product names
 
-Normalizing capitalization and whitespace
+- Normalizing capitalization and whitespace
 
-Handling punctuation and special characters
+- Handling punctuation and special characters
 
-Standardizing brand names
+- Standardizing brand names
 
-Extracting model numbers and relevant attributes
+- Extracting model numbers and relevant attributes
 
-Standardizing category and subcategory identifiers
+- Standardizing category and subcategory identifiers
 
 3. Product Matching and Machine Learning — matching_ml.py
 
@@ -68,85 +66,67 @@ Responsible for identifying products that represent the same item across differe
 
 Planned operations include:
 
-Generating candidate product pairs
+- Generating candidate product pairs
 
-Applying category and hierarchy-based filtering
+- Applying category and hierarchy-based filtering
 
-Calculating product-name similarity
+- Calculating product-name similarity
 
-Comparing brands, model numbers, and other available attributes
+- Comparing brands, model numbers, and other available attributes
 
-Training a supervised matching model using labeled product pairs
+- Training a supervised matching model using labeled product pairs
 
-Classifying matching and non-matching products
+- Classifying matching and non-matching products
 
-Evaluating matching performance
+- Evaluating matching performance
 
 The initial matching approach may combine rule-based techniques with machine learning.
 
+Evaluation Metrics:
 
-Evaluation Metrics
+The matching algorithm will be evaluated using manually labeled examples of matching and non-matching products, such as:
 
-The matching algorithm will be evaluated using manually labeled examples of matching and non-matching products.
+- Metric
 
-Metric
+- Purpose
 
-Purpose
+- Accuracy
 
-Accuracy
+- Percentage of correctly classified product pairs
 
-Percentage of correctly classified product pairs
+- Precision
 
-Precision
+- Proportion of predicted matches that are correct
 
-Proportion of predicted matches that are correct
+- Recall
 
-Recall
+- Proportion of actual matches successfully identified
 
-Proportion of actual matches successfully identified
+- F1 Score
 
-F1 Score
-
-Harmonic mean of precision and recall
+- Harmonic mean of precision and recall
 
 Precision and recall will be especially important because product-matching datasets may contain substantially more non-matching pairs than matching pairs.
 
-Proposed Technologies
+Proposed Technologies:
 
-Python
+- Python
 
-Pandas
+- Pandas
 
-NumPy
+- NumPy
 
-RapidFuzz
+- RapidFuzz
 
-Scikit-learn
+- Scikit-learn
 
-Git and GitHub
+Current Status:
 
-Development Roadmap
+1- Initial development and prototype planning.
 
-Implement data cleaning
+2- Implement a machine-learning matching model.
 
-Implement product normalization
+3- Evaluate accuracy, precision, recall, and F1 score.
 
-Define product hierarchy and category filtering
+4- Test the complete pipeline using retailer datasets.
 
-Implement baseline exact and fuzzy matching
-
-Prepare manually labeled product pairs
-
-Implement a machine-learning matching model
-
-Evaluate accuracy, precision, recall, and F1 score
-
-Test the complete pipeline using retailer datasets
-
-Prepare a working demonstration for academic review
-
-Current Status
-
-Initial development and prototype planning.
-
-The module's architecture and planned processing stages have been defined. Implementation and evaluation results will be documented as development progresses.
