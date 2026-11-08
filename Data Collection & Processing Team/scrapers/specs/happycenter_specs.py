@@ -26,6 +26,7 @@ import time
 from pathlib import Path
 
 import brands
+import catalog
 import common
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / "happycenter"))
@@ -85,6 +86,7 @@ def main():
     if not rows:
         log.error("no products returned; specs not written")
         sys.exit(1)
+    log.info("%d of %d found in Esra's catalog", catalog.enrich("HappyCenter", rows), len(rows))
     path, added, updated, kept = common.merge_and_save("HappyCenter", rows, common.GROCERY_FIELDS)
     log.info("%s: %d new, %d updated, %d no longer listed (kept)", path, added, updated, kept)
     common.check_name_join("HappyCenter", "HappyCenter", "happycenter")

@@ -26,6 +26,7 @@ from pathlib import Path
 import requests
 
 import brands
+import catalog
 import common
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / "sariyer"))
@@ -90,6 +91,7 @@ def main():
     if not rows:
         log.error("no products returned; specs not written")
         sys.exit(1)
+    log.info("%d of %d found in Esra's catalog", catalog.enrich("Sariyer", rows), len(rows))
     path, added, updated, kept = common.merge_and_save("Sariyer", rows, common.GROCERY_FIELDS)
     log.info("%s: %d new, %d updated, %d no longer listed (kept)", path, added, updated, kept)
     common.check_name_join("Sariyer", "Sariyer", "sariyermarket")

@@ -1,5 +1,7 @@
 """
-Brand from a grocery product name, for stores that give no brand field
+Brand from a grocery product name, and one spelling per brand.
+
+find_brand(name): brand from a grocery product name, for stores that give no brand field
 (Sariyer, HappyCenter, Ideal) and as a fallback for the others.
 
 Adapted from Esra's grocery catalogue (commit dddf328,
@@ -9,6 +11,7 @@ from the ucuzu project, with false hits removed ("ideal", "tuna", "dereotu")
 and multi-word brands added ("Dr. Oetker", "Coca-Cola").
 """
 
+import csv
 import json
 import re
 import unicodedata
@@ -16,6 +19,8 @@ from functools import lru_cache
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent / "brands"
+# Esra's cleaned catalog: one spelling per brand across 24 stores.
+CATALOG = Path(__file__).resolve().parents[2] / "data" / "groceries" / "pricematch" / "pricematch_cleaned_all_markets.csv"
 
 
 def fold(text):
@@ -56,3 +61,26 @@ def find_brand(name):
         if f" {brand} " in joined:
             return brands[brand]
     return ""
+
+
+@lru_cache(maxsize=1)
+def spellings():
+    """{folded brand: the one spelling}: brands/brand_spelling.json first, then Esra's catalog."""
+    out = {}
+    if CATALOG.exists():
+        with open(CATALOG, newline="", encoding="utf-8-sig") as f:
+            for row in csv.DictReader(f):
+                if row["brand"]:
+                    out.setdefault(fold(row["brand"]), row["brand"])
+    overrides = json.loads((HERE / "brand_spelling.json").read_text(encoding="utf-8"))["spelling"]
+    out.update(overrides)
+    return out
+
+
+def canonical(brand):
+    """One spelling for a brand: 'PAKMAYA', 'Pakmaya' -> 'Pakmaya'; 'Frıskıes' -> 'Friskies'.
+
+    A stray combining dot ('Sabri̇', from upper-casing 'İ' in some sites) is removed;
+    brands that no list knows are kept as written."""
+    brand = " ".join((brand or "").replace("\u0307", "").split())
+    return spellings().get(fold(brand), brand) if brand else ""

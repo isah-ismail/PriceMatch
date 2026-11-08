@@ -27,6 +27,7 @@ import time
 import requests
 
 import brands
+import catalog
 import common
 
 BASE_URL = "https://marketzade.com"
@@ -118,6 +119,7 @@ def main():
         sys.exit(1)
 
     rows = [to_spec(p) for p in products if p.get("id") and p.get("name")]
+    log.info("%d of %d found in Esra's catalog", catalog.enrich("Marketzade", rows), len(rows))
     path, added, updated, kept = common.merge_and_save("Marketzade", rows, common.GROCERY_FIELDS)
     log.info("%s: %d new, %d updated, %d no longer listed (kept)", path, added, updated, kept)
     common.check_name_join("Marketzade", "Marketzade", "marketzade")
