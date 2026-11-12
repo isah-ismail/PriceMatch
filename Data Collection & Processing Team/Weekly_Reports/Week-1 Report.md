@@ -1,0 +1,1 @@
+This version of our project was built in week two, so we have nothing to show for week 1. All of our activities for week 1 in the previous version have been done in this version as well, but are included in the week 2 report.

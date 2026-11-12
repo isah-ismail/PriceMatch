@@ -1,219 +1,184 @@
-# Cimri / Akakçe clone — price comparison
+# PriceMatch: data collection and processing
 
-An 8-person course project to build a price comparison website like
-[Cimri](https://www.cimri.com) or [Akakçe](https://www.akakce.com): search for a
-product and see its price at every store, cheapest first, with price history.
+Team 1's part of PriceMatch, a price comparison site like Cimri or Akakçe. This repo
+collects product details for the MVP stores, cleans them, and joins them to the daily
+prices so the other teams get one file per store and day: what the product is, where to
+buy it and what it costs.
 
-| Team | People | Area |
-|---|---|---|
-| 01 Data collection & processing | Umut (scraping), Esra (cleaning) | **this README** |
-| 02 Product matching | Iftikhar, Poyraz | which store listings are the same product |
-| 03 Database & backend | Fatima, Yake Kamal | PostgreSQL schema, API |
-| 04 Frontend & integration | Isah, Ayşe | website, deployment |
+MVP stores: **Beymen** and **Pozitif**, plus **Samsung**. Grocery stores come after the MVP.
 
----
-
-## Where the data comes from
-
-We **do not scrape prices ourselves.** A separate research project (a Turkish
-inflation study) already scrapes about 110 Turkish stores every day and saves the
-prices as CSV files (`InflationResearchStudy/InflationItems/Datas`). We use those files.
-
-Those files were made to measure inflation, not for shopping. Most of them only
-have `product_name, price, category_number, sub_category_number`: no link, no image,
-no storage or colour. That is not enough for a comparison site.
-
-Our professor's guidance (2026-10-28):
-
-1. Use the data already scraped for inflation.
-2. Write our own extra code for links and images.
-3. Product information (storage, colour, ...) only has to be collected **once**
-   per product, into our own database.
-4. Connect each day's price to the right product version **through its link /
-   product id**.
-
-So there are two data flows, joined by the store's own product id:
+## How the data flows
 
 ```
- DAILY (inflation study, already running)        ONCE PER PRODUCT (this repo)
- ─────────────────────────────────────────       ─────────────────────────────────
- beymen_2026-10-28.csv                           data/specs/beymen_specs.csv
-   product_name   price      UrunID  ──────────►   retailer_product_id  1865304
-   iPhone 17 Pro… 122679.38  1865304               storage_gb 256, color Kozmik Turuncu,
-                                                   model_code MG8Q4TU/A, url, ...
+ inflation study's daily price files             our spec scrapers
+ (one file per store and day)                    (what each product is)
+          │                                                │
+          ▼                                                ▼
+     data/raw/                                       data/clean/
+ beymen_2026-11-06.csv                           beymen_specs.csv
+   UrunID 1865279, 109277.32 TL                    listing_id BEYMEN-1865279
+          │                                         model_code MG8H4TU/A, 256 GB, ...
+          │                                                │
+          └──────────────► price_match/ ◄──────────────────┘
+                     joins on the store's product id
+                                  │
+                                  ▼
+                            data/prices/
+                  beymen_prices_2026-11-06.csv
+          listing_id, price, currency, name, brand, model_code, url
 ```
 
-**Example.** Samsung's daily file has two rows that look the same:
-`Galaxy A18, 17999`. Through their ids (`SM-A185FLBDTUR`, `SM-A185FZSDTUR`) the
-spec file says one is *Açık Mavi 128 GB* and the other *Gümüş 128 GB*.
+We do not scrape prices. A separate inflation research project already scrapes about
+110 Turkish stores every day (`InflationResearchStudy/InflationItems/Datas`). Its files
+have the price and the store's product id but almost nothing else, so our scrapers
+collect the product details once per product and the price builder joins the two.
 
-**Groceries link by name.** Since 2026-10-26 the inflation study's grocery files have
-no id at all (only `product_name, price` and the two TÜİK codes). Inside one store the
-daily scraper and ours read the same site, so each grocery spec script writes `name`
-exactly as that store's daily file does, and the name leads to the id:
+## Layout
 
 ```
- hakmar_2026-10-27.csv                            data/specs/hakmar_specs.csv
-   Uno Kruvasan Çikolata Kremalı 30 Gr, 19.50 ──►   name (same text) → retailer_product_id 18193,
-                                                    barcode 8690698515713, url, image_url, ...
-```
-
-Tested on older files that still had ids: a name that leads to exactly one id is the
-right product 99.9% of the time. A name used for two products is **ambiguous** and must
-not be linked.
-
-## Why electronics first
-
-To compare prices we must know that two stores sell **the same** product. For
-electronics this is easier than for anything else, because most products carry a
-manufacturer part number: Apple `MG8Q4TU/A`, Samsung `SM-S948BLBGTUR`, Lenovo
-`83JG00BMTR`. Product names alone almost never match across stores (5 identical
-names among ~20,000 electronics products), but part numbers do.
-
-## What is done
-
-Spec files in `data/specs/`, one per store. Electronics and groceries use different
-columns (see [the columns](#the-spec-file-columns-short-version)).
-
-| Store | How | Products | Joins to daily prices | Notes |
-|---|---|---|---|---|
-| Pozitif (pt.com.tr) | Store's public product API | 1,334 | 99% | Best structured data: colour, storage, RAM, screen, condition |
-| Samsung (samsung.com/tr) | Store's public product API | 1,389 | 99% | Colour, storage, screen size, capacity; no RAM |
-| Beymen (beymen.com) | **No requests**: read from the names in the daily files | 13,144 | 100% | Good for phones, computers, TVs; weak for accessories |
-| Marketzade (marketzade.com), groceries | Store's public product API (WooCommerce, like Pozitif) | 2,817 | 99.7% by name | Daily file has no id, so linked by name; barcode for 76%, image and link for all |
-| Hakmar (hakmarexpress.com.tr), groceries | Store's JSON API | 1,170 | 97.5% by name | Food only, like the daily scraper; barcode for 95%, brand, image and link for all |
-| Sariyer (sariyermarket.com), groceries | Site's product list (code copied from the inflation study) | 6,227 | 99.1% by name | Image and link for all; brand from the name (76%); no barcodes |
-| HappyCenter (happycenter.com.tr), groceries | Category pages (code copied from the inflation study) | 5,872 | 99.4% by name | Food aisles only; image and link for all; brand from the name (79%); barcode from image names (25%) |
-| Ideal (ideal.com.tr), groceries | Category pages | 2,723 | 100% by name | Image and link for all; brand from the name (86%); no barcodes |
-
-Products we can already compare across stores: model codes Beymen–Pozitif 203,
-Beymen–Samsung 117; grocery barcodes at two or more of Marketzade, Hakmar and
-HappyCenter 194.
-
-Not done yet:
-
-| Store | Status |
-|---|---|
-| Vatan | Product pages have rich structured data, but the daily price file has no id or link yet, so nothing can be joined. The daily scraper needs a small change to save the link. Vatan allows one request every 10 s, so the first full run would take ~15 h. |
-| MediaMarkt, Vestel | Daily scrapers only collect white goods (fridges, washers). Adding phones / laptops / TVs is a small change in the inflation study's scrapers. |
-| Teknosa, Hepsiburada, Trendyol, Amazon | Not scraped by anyone yet. These are the biggest electronics sellers. |
-
-## Repository layout
-
-```
-scrapers/
-  requirements.txt
-  specs/
-    README.md          details: every column, per-store notes, known gaps
-    common.py          shared columns, merge logic, path to the inflation data
-    name_parser.py     reads storage / RAM / screen / colour / model code / brand from a name
-    pozitif_specs.py
-    samsung_specs.py
-    beymen_specs.py
-    marketzade_specs.py
-    hakmar_specs.py
-    sariyer_specs.py
-    happycenter_specs.py
-    ideal_specs.py
-    sariyer/           fetching code copied from the inflation study's Sariyer scraper
-    happycenter/       crawling code copied from the inflation study's HappyCenter scraper
+scrapers/            spec scrapers and their shared code (see scrapers/README.md)
+  pozitif_specs.py   Pozitif's public product API
+  samsung_specs.py   Samsung's public product API
+  beymen_specs.py    no requests: reads the names in the inflation study's daily files
+  common.py          columns, merge-and-save, paths
+  clean.py           cleaning rules, applied every time a spec file is saved
+  name_parser.py     storage, RAM, screen, colour, model code and brand from a name
+  brands.py          one spelling per brand (brand_spelling.json)
+price_match/
+  build_price_sample.py   data/raw + data/clean -> data/prices
 data/
-  specs/
-    pozitif_specs.csv
-    samsung_specs.csv
-    beymen_specs.csv
-    marketzade_specs.csv
-    hakmar_specs.csv
-    sariyer_specs.csv
-    happycenter_specs.csv
-    ideal_specs.csv
+  raw/               daily price files copied unchanged from the inflation study
+  clean/             cleaned spec files, one per store
+  prices/            price files: one per store and day
+DATA_DICTIONARY.md   every column of every file
 ```
 
-## Running it
+## Setup
 
-Needs Python 3.9+.
+Python 3.9 or later.
 
 ```bash
-pip install -r scrapers/requirements.txt
-python scrapers/specs/pozitif_specs.py   # ~20 s
-python scrapers/specs/samsung_specs.py   # ~35 s
-python scrapers/specs/beymen_specs.py    # needs the inflation study's daily CSVs (below)
-python scrapers/specs/marketzade_specs.py  # ~4 min
-python scrapers/specs/hakmar_specs.py      # ~2 min
-python scrapers/specs/sariyer_specs.py     # ~9 min
-python scrapers/specs/happycenter_specs.py # ~8 min
-python scrapers/specs/ideal_specs.py       # ~7 min
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
-Running a script again **updates** its CSV instead of replacing it. New products are
-added, products that left the store are kept, and `first_seen` / `last_seen` record
-when each was listed. It is safe to run any number of times.
-
-`beymen_specs.py` and the grocery scripts' link check read the inflation study's
-`Datas` folder. By default they look two folders above this repo
-(`<that folder>/InflationResearchStudy/InflationItems/Datas`). If yours is somewhere else,
-set `INFLATION_DATAS` once, for example in `~/.zshrc`:
+`beymen_specs.py` reads the inflation study's `Datas` folder. It looks for
+`InflationResearchStudy`. If yours is elsewhere, set `INFLATION_DATAS`:
 
 ```bash
 export INFLATION_DATAS="$HOME/Desktop/AI 201/DataScraping/InflationResearchStudy/InflationItems/Datas"
 ```
 
-(`beymen_specs.py --datas <path>` also works for a single run.) Every grocery script has
-`--check`: it makes no requests and reports how many names in the store's latest daily
-file link to exactly one product.
+## Running it
 
-> **Don't save these CSVs from Excel.** Opening them is fine, but if you click Save,
-> Excel rewrites dates (`2026-09-28` → `9/28/2026`) and turns barcodes and barcode-style
-> model codes into `8.69056E+12`. That corrupts the data and breaks the next run. If it happens,
-> `git checkout -- data/specs/` restores the committed files.
+From the repository root:
 
-## The spec file columns (short version)
+```bash
+python scrapers/pozitif_specs.py            # ~15 requests, ~1 min
+python scrapers/samsung_specs.py            # 21 requests, ~1 min
+python scrapers/beymen_specs.py             # no requests; reads every Beymen daily file
+python price_match/build_price_sample.py    # seconds
+```
 
-| Column | Example | Use |
+The scrapers **update** their file in `data/clean/` instead of replacing it: new products
+are added, products that left the store are kept (old prices still join), and
+`first_seen` / `last_seen` record when each was listed. They are safe to run any number of
+times. Every save re-cleans the whole file, so a file is never older than the cleaning rules.
+
+After changing a rule in `clean.py`, re-clean all files without scraping:
+
+```bash
+python scrapers/clean.py
+```
+
+### Adding a newer price day
+
+Copy that day's daily files from the inflation study into `data/raw/` without changing
+them (`08_Communication/Beymen/beymen_<date>.csv`, `PozitifTeknoloji/pozitifTeknoloji_<date>.csv`,
+`Samsung/samsung_<date>.csv`). Run the scrapers first so new products are in the spec files,
+then run the price builder: it always uses the newest file in `data/raw/` for each store.
+
+Copy only the days you need. The whole inflation study's data is about 4 GB.
+
+## IDs
+
+Every spec and price file has these three columns:
+
+| Column | Example | Made by | Means |
+|---|---|---|---|
+| `retailer_product_id` | `1865279` | The store | The store's own product id. Unique only within one store |
+| `listing_id` | `BEYMEN-1865279` | This repo | One store listing: store name + the store's id. Unique across all stores, the same every day, and can be computed from a daily price row |
+| `model_code` | `MG8H4TU/A` | The manufacturer | Manufacturer part number, the same at every store. Not unique: empty when the store gives none, and one code can be several listings (see below) |
+
+`listing_id` is the only id this repo creates. Use it as the key for offers and prices.
+The id that groups listings of the same product across stores (`product_id`) is made by
+Team 2 (matching), not here.
+Samsung's ids are its model codes, so its `listing_id` contains a `/`
+(`SAMSUNG-SM-A185FLBDTUR`, `SAMSUNG-AC071RN4DKG/EU`); encode it in URLs.
+
+### For the matching team
+
+`listing_id` says **which listing** a row is, never which product. Two stores' ids for the
+same iPhone have nothing in common. Matching compares what the product is instead: above all `model_code`, the manufacturer's part number, which is the same at every store, then `brand`, `family`, `color`, `storage_gb`, `ram_gb`, `screen_size_in` and `capacity`:
+
+| model_code | Beymen | Pozitif |
 |---|---|---|
-| `retailer`, `retailer_product_id` | `Beymen`, `1865304` | **Join key** to the daily price files |
-| `model_code` | `MG8Q4TU/A` | **Matching key** across stores |
-| `name`, `brand`, `category`, `family` | `iPhone 17 Pro`, `Apple` | Display, search, filters |
-| `color`, `storage_gb`, `ram_gb`, `screen_size_in`, `capacity` | `Kozmik Turuncu`, `256`, `12`, `6.9` | Variant details, filters |
-| `condition` | `new` / `display` / `used` | Never compare a display unit's price with a new one |
-| `url`, `image_url` | | "Go to store" link, product picture |
-| `first_seen`, `last_seen` | `2026-09-28` | When the store listed it |
+| `MG8H4TU/A` (iPhone 17 Pro 256 GB Kozmik Turuncu) | `BEYMEN-1865279`, 109,277.32 TL | `POZITIF-479386`, 111,499.00 TL |
 
-Grocery stores use a shorter set: `retailer, retailer_product_id, barcode, name, brand, category, size,
-url, image_url, attributes, first_seen, last_seen`. `name` is the join key to their daily prices
-(their daily files have no id), and `barcode` is the matching key across stores.
+The matching output is a table that gives each listing a `product_id`
+(`BEYMEN-1865279 → P1`, `POZITIF-479386 → P1`). The website then shows every offer of `P1`,
+cheapest first. Things to watch:
 
-Full list: [`scrapers/specs/README.md`](scrapers/specs/README.md).
+- **Skip empty model codes.** pandas `merge` joins empty (NaN) keys with each other, which
+  pairs unrelated products. Drop rows without a `model_code` before joining on it.
+- **One code can be several listings.** On 2026-11-06, 102 shared codes give 105 Beymen–Pozitif
+  pairs. At Beymen one code is often sold in several colours, so also compare `color` and `storage_gb`.
+- **Compare new with new.** The price files already contain only new, non-bundle products.
+- **Most Beymen listings have no model code** (28% do). About half of those (5,385 of 10,018) are accessories: phone cases, watch straps and chargers, mostly from small makers, and only 76 have a brand. Other stores are unlikely to sell the same item: Pozitif's accessories are branded (Beats, ZAGG, Apple, Satechi) and have model codes. Most of the rest are small appliances, game consoles and audio, which other stores may sell. For those, matching has to use the name, brand, colour and storage, and an uncertain match should stay unmatched.
 
-## For the other teams
+## What is in the data now
 
-- **Esra (cleaning):** `name_parser.parse_name(name)` already extracts storage, RAM,
-  screen size, colour, model code and brand from a product name. Reuse and improve it
-  instead of starting over. It works for any store that only has names (e.g. Vatan).
-  For groceries, `brands.py` uses your brand list and brand finder from the grocery
-  catalogue (`dddf328`); improving the list raises brand coverage for Sariyer (76%),
-  HappyCenter (79%) and Ideal (86%).
-- **Team 02 (matching):** match on `model_code` first. That alone links hundreds
-  of products. Use `storage_gb` + `color` + `family` for the rest, and keep
-  `condition` separate.
-  For groceries, match on `barcode` first (Hakmar 95%, Marketzade 76%, HappyCenter 25%;
-  194 barcodes are already at two or more stores), then `brand` + `size` + name. Barcodes read
-  from image file names (Marketzade, HappyCenter) can be wrong when a store reuses a picture, so
-  confirm them with brand and size.
-- **Team 03 (database):** a store listing is identified by
-  `(retailer, retailer_product_id)`, **not by URL**: Beymen and Vatan have no URL in
-  the daily data, so `offers.product_url` must be allowed to be empty. Daily prices go
-  to `price_history` by joining on that key; for groceries, first look the daily name up
-  in the store's spec file (same text) to get the id, and skip names that lead to two ids.
-  History by id does not reach back to March 2026 everywhere: Beymen's ids start in
-  August–September, and grocery files before 2026-10-26 come in many formats.
-- **Team 04 (frontend):** Beymen has no images. Show the image of the same
-  `model_code` from another store.
+Spec files: Beymen from its daily files up to 2026-11-08, Pozitif and Samsung scraped on
+2026-11-11. Prices from 2026-11-06:
 
-## Rules we follow
+| | Beymen | Pozitif | Samsung |
+|---|---:|---:|---:|
+| Products in the spec file | 13,893 | 1,374 | 1,398 |
+| With a model code | 3,875 (28%) | 1,233 (90%) | 1,398 (100%) |
+| With a brand | 1,532 (11%) | 1,363 (99%) | 1,398 (100%) |
+| With an image | 0 | 1,374 | 1,398 |
+| With a description | 0 | 1,303 | 0 |
+| Rows in the 2026-11-06 daily price file | 11,583 | 1,303 | 348 |
+| Saved to `data/prices/` | 11,583 | 633 | 341 |
 
-- Respect each site's `robots.txt` and crawl delay, and stop when a site blocks us.
-  Never try to get around a block.
-- Don't put more load on a site than the inflation scrapers already do. When the
-  daily data already has the information (Beymen), read it from there.
-- Don't commit the inflation study's raw data to this repo. It is ~4 GB.
+The price builder prints the count after each step. Pozitif loses most rows
+to its stock flag (468 out of stock), then display and used units (73), then bundles (123)
+and non-products (6).
+
+**Cross-store matches by model code:** Beymen and Pozitif share 212 model codes; 102 of
+them have a price at both stores on 2026-11-06. Beymen and Samsung share 119 (32 priced at
+both). Pozitif and Samsung share none: Pozitif sells mostly Apple, Samsung only Samsung.
+
+## Known gaps
+
+- **Beymen has no images**, and its brand and model code come only from the product name.
+  Accessory names rarely say the maker, so most accessories have neither. Show the image of
+  the same `model_code` from another store.
+- **At Beymen a model code alone is not proof of a match.** One code is often sold in several
+  colours (KitchenAid `5KSM175PS` in 11). Also compare `color` and `storage_gb`.
+- **Compare new with new.** Pozitif's display and used units share the new product's model code.
+- **Descriptions only at Pozitif.** Pozitif's `description` (1,303 of the 1,312 products it lists
+  today) holds the store's spec table and text, so it can fill in what the columns miss.
+  Samsung's product API gives none, and Beymen's daily files have only the name.
+- **No barcodes (GTIN/EAN).** No store gives one as a field. Pozitif uses the EAN-13 barcode as
+  the SKU for 41 accessories (Zore, I-Pro, Lito), so for those `model_code` is the barcode.
+- **Software licences** (Microsoft 365, Office) stay in Pozitif's data as products. Shipping fees, payment tokens and warranty or service packages are marked `exclude`.
+
+## Rules
+
+- **Follow each site's `robots.txt`.** Don't request paths it disallows, and wait at least its
+  `Crawl-delay` between requests. Beymen's `robots.txt` disallows its listing API, so
+  `beymen_specs.py` makes no requests and reads the inflation study's daily files instead.
+- **Don't save the CSVs from Excel.** Excel rewrites dates and long numbers and breaks the next
+  run. If it happens, `git checkout -- data/` restores the committed files.

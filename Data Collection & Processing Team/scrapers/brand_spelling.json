@@ -1,0 +1,18 @@
+{
+  "description": "One spelling per brand. Keys are brands folded with brands.fold() (lower case, Turkish letters to plain letters). Add a line when two stores write the same brand differently.",
+  "spelling": {
+    "apple": "Apple",
+    "asus": "Asus",
+    "beats": "Beats",
+    "beats electronics": "Beats",
+    "dji": "DJI",
+    "hp": "HP",
+    "jbl": "JBL",
+    "lacie": "LaCie",
+    "lg": "LG",
+    "msi": "MSI",
+    "samsung": "Samsung",
+    "sandisk": "SanDisk",
+    "zagg": "ZAGG"
+  }
+}
