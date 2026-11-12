@@ -27,12 +27,13 @@ cleaned by `scrapers/clean.py` on every save. No prices.
 | `category` | text | The store's own category. Pozitif and Samsung: a path (`Outlet > iPhone Outlet > iPhone 15 Outlet`). Beymen: the inflation study's group (`Cep telefonu`, `Bilgi ve iletişim aksesuarları`, ...) |
 | `family` | text | Product line, e.g. `iPhone 17 Pro`, `Galaxy A18`. Never filled for Pozitif |
 | `color` | text | Colour as the store writes it, in Turkish |
+| `color_group` | text | Colour family from `color`: `Gece Mavisi`, `Lacivert`, `Blue` → `Mavi`. Empty when the colour is unknown |
 | `storage_gb` | number | Storage in GB; 1 TB = 1024 |
 | `ram_gb` | number | Memory in GB. Never filled for Samsung |
 | `screen_size_in` | number | Screen size in inches |
-| `capacity` | text | Non-storage capacity as written: `9 kg`, `12.000 Btu/Saat` (Samsung only) |
+| `capacity` | text | Non-storage capacity: `9 kg`, `508 L`, `12000 BTU` (Samsung only). The store's original text is in `attributes` |
 | `processor` | text | e.g. `M5` (Pozitif only) |
-| `connectivity` | text | e.g. `Wi-Fi + Cell`, `GPS + Cellular` (Pozitif only) |
+| `connectivity` | text | `Wi-Fi`, `Wi-Fi + Cellular`, `GPS` or `GPS + Cellular` (Pozitif only) |
 | `condition` | text | `new`, `display` (teşhir) or `used` (ikinci el). Only compare new with new |
 | `is_bundle` | text | `True` for product sets, else `False` |
 | `quality_status` | text | `exclude` for things that are not products (shipping fees, payment tokens, warranty or service packages), else `ok` |

@@ -59,11 +59,12 @@ SPEC_FIELDS = [
     "brand",
     "category",             # store's category path, "A > B > C"
     "family",               # product line, e.g. "Galaxy S26"
-    "color",
+    "color",                # as the store writes it: "Gece Mavisi"
+    "color_group",          # colour family: "Mavi" (clean.py)
     "storage_gb",
     "ram_gb",
     "screen_size_in",
-    "capacity",             # non-storage capacity as written: "9 kg", "12.000 Btu/Saat"
+    "capacity",             # non-storage capacity: "9 kg", "12000 BTU" (clean.py)
     "processor",
     "connectivity",
     "condition",            # new / display / used
