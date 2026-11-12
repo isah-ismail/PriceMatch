@@ -213,6 +213,23 @@ Every item below is **open**. Suggested reviewers identify relevant roles, not c
 
 Record each reviewer's decision, date and any requested changes here or link to the team discussion. Close INT-11 once both reviewers confirm the contract.
 
+## Stack confirmation
+
+This table records the stack visible in the repository. Each team should confirm the tools and versions it intends to support for local development. Review is pending.
+
+| Area | Current stack | Confirmation needed |
+| --- | --- | --- |
+| Frontend | Static HTML, CSS and JavaScript | Frontend team confirms browser support and how to serve pages locally. |
+| Backend | Python 3.12 in CI, FastAPI, Uvicorn, SQLAlchemy 2 and psycopg 3 | Backend team confirms Python 3.12 as the shared development version and notes any additional constraints. |
+| Database | PostgreSQL 17 in CI and the local setup guide | Database team confirms PostgreSQL 17 and the migration workflow. |
+| Data collection | Python, requests, Beautiful Soup 4 and lxml | Data team confirms its Python version and scraper requirements. |
+| Product matching | Python, pandas, NumPy, RapidFuzz and scikit-learn | Matching team confirms its Python version and requirements. |
+| Tests and CI | pytest, GitHub Actions, SQLite and PostgreSQL 17 | Integration and backend teams confirm which checks are expected for each change. |
+
+Record each team's confirmation, date and any requested changes here. The Python dependencies currently listed in requirements files may allow a range of package versions. Confirm any reproducibility requirements with the relevant team before choosing exact pins.
+
+References: [frontend entry page](../frontend/index.html), [backend requirements](../../Database%20%26%20Backend%20Development%20Team/backend/requirements.txt), [backend CI](../../.github/workflows/backend-tests.yml), [scraper requirements](../../Data%20Collection%20%26%20Processing%20Team/scrapers/requirements.txt) and [matching requirements](../../Product%20Matching%20%26%20Hierarchy%20Problem%20Team/requirements.txt).
+
 ## Proposed contract acceptance process
 
 For each decision, record alternatives, chosen behavior, approving roles, date and affected documents. Until approved, keep it open. Capture sample valid, invalid, missing and ambiguous records with expected handling. Schema changes belong in a separately reviewed new migration; existing migrations must remain intact.
