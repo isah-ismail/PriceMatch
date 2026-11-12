@@ -109,6 +109,7 @@ them twice gives the same result:
 | `listing_id` = store + the store's id | `POZITIF-17870` |
 | Name: HTML codes decoded, spaces collapsed | `iPad &#8211; Kılıf` → `iPad – Kılıf` |
 | Brand: one spelling (`brands.py`) | `Beats Electronics` → `Beats` |
+| Same thing written one way | Colour family in `color_group` (`Gece Mavisi`, `Lacivert` → `Mavi`), `Wi-Fi + Cell` → `Wi-Fi + Cellular`, `24.000 Btu/Saat` → `24000 BTU` |
 | Model code must look like a part number: capital letters, digits, `.` `/` `-` | `Kargo-Bedeli-2`, `_Z536`, `BeatsSesPaketi...` are removed; the removed code is kept in `quality_reason` |
 | Not a product → `quality_status = exclude` | Shipping fees (`Kargo Bedeli`), payment tokens (`Ödeme Jetonu`), warranty or service packages (`Garanti Paketi`, `Hizmet Paketi`) |
 
