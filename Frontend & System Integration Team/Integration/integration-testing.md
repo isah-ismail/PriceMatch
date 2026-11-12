@@ -50,3 +50,9 @@ A future CI job should use PostgreSQL 17, initialize an isolated database, run m
 Report test ID, commit, environment, fixture version, expected/actual result and defect link. Component owners review boundary expectations; integration coordinates the matrix. Named owners remain to be assigned.
 
 Week 1 exit: reviewers accept the matrix and fixture plan, setup evidence is recorded, open decisions are visible, and planned checks are clearly separated from executed evidence.
+
+## Basic testing and code review conventions
+
+- In each pull request, describe what changed and list the checks you ran and their results. Mention any relevant checks you could not run.
+- For backend changes, run `python -m pytest -q` from the backend folder and check the applicable GitHub Actions results. For frontend changes, open the affected page in a browser and test the behavior you changed.
+- Before merging, ask one teammate from the affected area to review the change. Address their feedback and check that the applicable tests pass.
