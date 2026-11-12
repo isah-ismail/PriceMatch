@@ -16,6 +16,7 @@ Status: documentation prepared for review on 2026-11-05. No authoritative course
 
 ## Review gates
 
+- [x] Document environment variables safely. See the [environment variables guide](environment-variables.md).
 - [ ] Existing versus proposed functionality is accurate.
 - [ ] Team documentation, code, CSVs and existing migrations remain unchanged.
 - [ ] Both Mermaid flow diagrams render in GitHub.
