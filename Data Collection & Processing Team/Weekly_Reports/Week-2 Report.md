@@ -36,8 +36,9 @@ Beymen and Pozitif share 212 model codes. Out of these, 102 have prices availabl
 | 2026-11-12 | `15b93ad`, `3d7c72e` | Removed editor files. |
 | 2026-11-13 | `0cf8283` | Copied v2 to the team repository (`isah-ismail/PriceMatch`). |
 | 2026-11-13 | `6151678` | Added colour, connectivity and capacity standardization to `clean.py`. |
+| 2026-11-13 | `b449114` | Merged the standardization into this repository (pull request #7). |
 
-Commits are from our working repository (`esraseezgin/cimri-akakce-team1`), except `0cf8283`, which is in this repository.
+Commits are from our working repository (`esraseezgin/cimri-akakce-team1`), except `0cf8283` and `b449114`, which are in this repository.
 
 ### What Changed in v2?
 
@@ -112,7 +113,6 @@ There are still some limitations in the data:
 
 ## Open Items
 
-The following tasks are still waiting to be completed:
+The following task is still waiting to be completed:
 
-1. Confirm the dictionary column names with Teams 02 and 03.
-2. Share the clean sample with Team 02 so they can label 100–200 product pairs.
+1. Share the clean sample with Team 02 so they can label 100–200 product pairs.
