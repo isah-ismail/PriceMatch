@@ -39,6 +39,15 @@ Status: documentation prepared for review on 2026-11-05. No authoritative course
 - Follow-up issue links:
 
 ## Validation of this documentation change
+### Setup verification — Ayşe
+
+- Date: 2026-11-12
+- Environment: Windows, Python 3.12.10, PostgreSQL 17.11
+- Tested commit: `89734a9`
+- Backend tests on SQLite: 23 passed, 1 warning.
+- PostgreSQL setup: Initial migration applied successfully.
+- Backend health check: `/health` returned `status: ok` and `database: ok`.
+- Team verification: Other members' results are pending.
 
 Static review covers changed-file scope, preserved original README description, relative links and consistency with the baseline. Runtime setup, database tests, live scrapers and deployment are not executed by this documentation change. GitHub diagram rendering remains a reviewer check.
 
