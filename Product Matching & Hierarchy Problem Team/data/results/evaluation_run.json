@@ -1,0 +1,13 @@
+{
+  "algorithm_version": "iphone-week3-v2",
+  "manual_file": "C:\\Users\\LENOVO\\Desktop\\Work\\Last Year\\401\\project code\\Product Matching & Hierarchy Problem Team\\PriceMatch\\Product Matching & Hierarchy Problem Team\\data\\manual\\phone_pairs_manual.csv",
+  "evaluation_mode": "exploratory",
+  "threshold": 0.8,
+  "input_pairs": 100,
+  "out_of_scope_pairs": 6,
+  "in_scope_pairs": 94,
+  "repeated_normalized_pairs": 5,
+  "unique_evaluation_pairs": 89,
+  "metric_policy": "same versus not confirmed; review counts against positive recall and is reported separately",
+  "threshold_policy": "Fixed starting threshold, not claimed to be optimized"
+}

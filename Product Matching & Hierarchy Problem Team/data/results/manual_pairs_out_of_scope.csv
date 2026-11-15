@@ -1,0 +1,7 @@
+﻿pair_id,beymen_name,pozitif_name,manual_label,manual_reason,exclusion_reason
+PHONE-023,Phone 3a 8 Ram 128 GB Beyaz Akıllı Cep Telefonu,iPhone 18 Pro Max 2TB Burgonya MJY44TU/A,different,Different phone models: phone 3a 8 ram vs iphone 18 pro max.,One or both titles are not iPhones
+PHONE-025,Galaxy S26 Ultra 512GB Beyaz Akıllı Cep Telefonu SM-S948BZWGTUR,iPhone 17 256GB Lavanta MG6M4TU/A,different,Different phone models: galaxy s26 ultra vs iphone 17.,One or both titles are not iPhones
+PHONE-036,Galaxy S26 256GB Gök Mavisi Akıllı Cep Telefonu SM-S942BLBGTUR,iPhone 18 Pro 256GB Buzul Rengi MJRT4TU/A,different,Different phone models: galaxy s26 vs iphone 18 pro.,One or both titles are not iPhones
+PHONE-039,Phone 3a 8 Ram 128 GB Beyaz Akıllı Cep Telefonu,iPhone 17e 256GB Beyaz MHRW4TU/A,different,Different phone models: phone 3a 8 ram vs iphone 17e.,One or both titles are not iPhones
+PHONE-068,Galaxy S26 Ultra 512 GB Gök Mavisi Akıllı Cep Telefonu SM-S948BLBGTUR,iPhone 17e 256GB Beyaz MHRW4TU/A,different,Different phone models: galaxy s26 ultra vs iphone 17e.,One or both titles are not iPhones
+PHONE-091,Galaxy S26 Plus 256GB Gök Mavisi Akıllı Cep Telefonu SM-S947BLBDTUR,iPhone 17 256GB Beyaz MG6K4TU/A,different,Different phone models: galaxy s26 plus vs iphone 17.,One or both titles are not iPhones
