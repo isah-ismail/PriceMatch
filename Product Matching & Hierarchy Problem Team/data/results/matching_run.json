@@ -1,0 +1,18 @@
+{
+  "algorithm_version": "iphone-week3-v2",
+  "algorithm": "hybrid",
+  "threshold": 0.8,
+  "shops": [
+    "beymen",
+    "pozitif"
+  ],
+  "listings": {
+    "beymen": 86,
+    "pozitif": 112
+  },
+  "candidate_pairs": 857,
+  "confirmed_pairs": 77,
+  "review_pairs": 155,
+  "different_pairs": 625,
+  "price_scope": "Recorded item prices only; no shipping adjustment or availability guarantee"
+}

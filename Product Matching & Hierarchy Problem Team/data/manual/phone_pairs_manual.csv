@@ -1,0 +1,101 @@
+﻿pair_id,beymen_name,pozitif_name,manual_label,manual_reason
+PHONE-001,iPhone 17e 256GB Açık Pembe Akıllı Cep Telefonu MHRX4TU/A,iPhone Air 1TB Pamuk Beyazı MG2X4TU/A,different,Different phone models: iphone 17e vs iphone air.
+PHONE-002,iPhone 18 Pro Max 1 TB Siyah Akıllı Cep Telefonu MJXX4TU/A,iPhone 18 Pro Max 1TB Siyah MJXX4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-003,iPhone 16 128GB Pembe Akıllı Cep Telefonu MYEA3TU/A,iPhone 16 128GB Pembe MYEA3TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-004,iPhone 17 Pro Max 2TB Gümüş Akıllı Cep Telefonu MFYY4TU/A,iPhone 17 Pro 1TB Gümüş MG8P4TU/A,different,Different phone models: iphone 17 pro max vs iphone 17 pro.
+PHONE-005,iPhone Air 256GB Gök Mavisi Akıllı Cep Telefonu MG2P4TU/A,iPhone Air 256GB Gök Mavisi MG2P4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-006,iPhone 17e 256GB Beyaz Akıllı Cep Telefonu MHRW4TU/A,iPhone 17e 256GB Beyaz MHRW4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-007,iPhone 17 512GB Sis Mavisi Akıllı Cep Telefonu,iPhone 18 Pro 256GB Burgonya MJRR4TU/A,different,Different phone models: iphone 17 vs iphone 18 pro.
+PHONE-008,iPhone 16 128 GB Pembe Akıllı Cep Telefonu MYEA3TU/A,iPhone 15 128GB Pembe MTP13TU/A,different,Different phone models: iphone 16 vs iphone 15.
+PHONE-009,iPhone 18 Pro Max 1 TB Buz Mavisi Akıllı Cep Telefonu MJY14TU/A,iPhone 18 Pro Max 1TB Buzul Rengi MJY14TU/A,unsure,"Same model code and storage, but Buz Mavisi vs Buzul Rengi needs confirmation as an exact color alias."
+PHONE-010,iPhone 17 Pro 512GB Gümüş Akıllı Cep Telefonu MG8K4TU/A,iPhone 18 Pro 512GB Gümüş MJRV4TU/A,different,Different phone models: iphone 17 pro vs iphone 18 pro.
+PHONE-011,iPhone 17e 256GB Siyah Akıllı Cep Telefonu MHRV4TU/A,iPhone 17e 256GB Açık Pembe MHRX4TU/A,comparable,Same phone model and storage; different color: siyah vs acik pembe.
+PHONE-012,iPhone 17 256GB Lavanta Akıllı Cep Telefonu MG6M4TU/A,iPhone 16 Plus 256GB Laciverttaş MXY23TU/A,different,Different phone models: iphone 17 vs iphone 16 plus.
+PHONE-013,iPhone 18 Pro Max 1 TB Gümüş Akıllı Cep Telefonu MJXY4TU/A,iPhone 18 Pro Max 1TB Burgonya MJY04TU/A,comparable,Same phone model and storage; different color: gumus vs burgonya.
+PHONE-014,iPhone 17 Pro 512GB Gümüş Akıllı Cep Telefonu MG8K4TU/A,iPhone Duo 2TB Gece Rengi MK2L4TU/A,different,Different phone models: iphone 17 pro vs iphone duo.
+PHONE-015,iPhone Air 256GB Gök Mavisi Akıllı Cep Telefonu MG2P4TU/A,iPhone Air 256GB Pamuk Beyazı MG2M4TU/A,comparable,Same phone model and storage; different color: gok mavisi vs pamuk beyazi.
+PHONE-016,iPhone 15 128 GB Siyah Akıllı Cep Telefonu MTP03TU/A,iPhone 15 128GB Siyah MTP03TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-017,iPhone 16 128 GB Deniz Mavisi Akıllı Cep Telefonu MYED3TU/A,iPhone 16 128GB Deniz Mavisi MYED3TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-018,iPhone 17 512GB Beyaz Akıllı Cep Telefonu,iPhone 18 Pro Max 2TB Buzul Rengi MJY54TU/A,different,Different phone models: iphone 17 vs iphone 18 pro max.
+PHONE-019,iPhone 16 128GB Laciverttaş Akıllı Cep Telefonu MYEC3TU/A,iPhone 16 Plus 256GB Laciverttaş MXY23TU/A,different,Different phone models: iphone 16 vs iphone 16 plus.
+PHONE-020,iPhone 18 Pro Max 512 GB Gümüş Akıllı Cep Telefonu MJXU4TU/A,iPhone 18 Pro Max 1TB Burgonya MJY04TU/A,comparable,Same phone model; storage differs: 512GB vs 1024GB. Color wording also differs.
+PHONE-021,iPhone 17 Pro 512GB Gümüş Akıllı Cep Telefonu MG8K4TU/A,iPhone Duo 1TB Yıldız Rengi MK2H4TU/A,different,Different phone models: iphone 17 pro vs iphone duo.
+PHONE-022,iPhone 17 256GB Lavanta Akıllı Cep Telefonu MG6M4TU/A,iPhone 18 Pro Max 2TB Buzul Rengi MJY54TU/A,different,Different phone models: iphone 17 vs iphone 18 pro max.
+PHONE-023,Phone 3a 8 Ram 128 GB Beyaz Akıllı Cep Telefonu,iPhone 18 Pro Max 2TB Burgonya MJY44TU/A,different,Different phone models: phone 3a 8 ram vs iphone 18 pro max.
+PHONE-024,iPhone 17 256GB Adaçayı Akıllı Cep Telefonu,iPhone 17 256GB Ada Çayı MG6N4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-025,Galaxy S26 Ultra 512GB Beyaz Akıllı Cep Telefonu SM-S948BZWGTUR,iPhone 17 256GB Lavanta MG6M4TU/A,different,Different phone models: galaxy s26 ultra vs iphone 17.
+PHONE-026,iPhone 16 128 GB Pembe Akıllı Cep Telefonu MYEA3TU/A,iPhone 16 128GB Pembe MYEA3TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-027,iPhone Air 256GB Pamuk Beyazı Akıllı Cep Telefonu MG2M4TU/A,iPhone Air 256GB Uzay Siyahı MG2L4TU/A,comparable,Same phone model and storage; different color: pamuk beyazi vs uzay siyahi.
+PHONE-028,iPhone 17 Pro Max 256GB Abis Akıllı Cep Telefonu MFYP4TU/A,iPhone 17 Pro 256GB Abis MG8J4TU/A,different,Different phone models: iphone 17 pro max vs iphone 17 pro.
+PHONE-029,iPhone 17e 256GB Açık Pembe Akıllı Cep Telefonu MHRX4TU/A,iPhone 17e 512GB Açık Pembe MHU34TU/A,comparable,Same phone model; storage differs: 256GB vs 512GB.
+PHONE-030,iPhone 17 Pro Max 256GB Gümüş Akıllı Cep Telefonu MFYM4TU/A,iPhone 17 Pro Max 256GB Gümüş MFYM4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-031,iPhone 17 Pro Max 2TB Gümüş Akıllı Cep Telefonu MFYY4TU/A,iPhone 17 Pro Max 2TB Gümüş MFYY4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-032,iPhone 16 128GB Beyaz Akıllı Cep Telefonu MYE93TU/A,iPhone 16 128GB Beyaz MYE93TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-033,iPhone 18 Pro Max 1 TB Buz Mavisi Akıllı Cep Telefonu MJY14TU/A,iPhone 18 Pro Max 2TB Burgonya MJY44TU/A,comparable,Same phone model; storage differs: 1024GB vs 2048GB. Color wording also differs.
+PHONE-034,iPhone 17 Pro Max 2TB Gümüş Akıllı Cep Telefonu MFYY4TU/A,iPhone 17 Pro Max 1TB Abis MFYX4TU/A,comparable,Same phone model; storage differs: 2048GB vs 1024GB. Color wording also differs.
+PHONE-035,iPhone 17 256GB Beyaz Akıllı Cep Telefonu MG6K4TU/A,iPhone 17e 512GB Beyaz MHU04TU/A,different,Different phone models: iphone 17 vs iphone 17e.
+PHONE-036,Galaxy S26 256GB Gök Mavisi Akıllı Cep Telefonu SM-S942BLBGTUR,iPhone 18 Pro 256GB Buzul Rengi MJRT4TU/A,different,Different phone models: galaxy s26 vs iphone 18 pro.
+PHONE-037,iPhone 17 512GB Siyah Akıllı Cep Telefonu,iPhone 15 256GB Siyah MTP63TU/A,different,Different phone models: iphone 17 vs iphone 15.
+PHONE-038,iPhone 16 128 GB Siyah Akılı Cep Telefonu MYE73TU/A,iPhone 16 128GB Siyah MYE73TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-039,Phone 3a 8 Ram 128 GB Beyaz Akıllı Cep Telefonu,iPhone 17e 256GB Beyaz MHRW4TU/A,different,Different phone models: phone 3a 8 ram vs iphone 17e.
+PHONE-040,iPhone 16 128 GB Laciverttaş Akıllı Cep Telefonu MYEC3TU/A,iPhone 16 Plus 128GB Laciverttaş MXVX3TU/A,different,Different phone models: iphone 16 vs iphone 16 plus.
+PHONE-041,iPhone 17 Pro 512GB Kozmik Turuncu Akıllı Cep Telefonu MG8M4TU/A,iPhone 17 Pro 1TB Kozmik Turuncu MG8Q4TU/A,comparable,Same phone model; storage differs: 512GB vs 1024GB.
+PHONE-042,iPhone 17 Pro 512GB Abis Akıllı Cep Telefonu MG8N4TU/A,iPhone 17 Pro 512GB Abis MG8N4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-043,iPhone 17 Pro Max 2TB Gümüş Akıllı Cep Telefonu MFYY4TU/A,iPhone 17 Pro Max 512GB Gümüş MFYQ4TU/A,comparable,Same phone model; storage differs: 2048GB vs 512GB.
+PHONE-044,iPhone 17e 256GB Siyah Akıllı Cep Telefonu MHRV4TU/A,iPhone 18 Pro Max 1TB Siyah MJXX4TU/A,different,Different phone models: iphone 17e vs iphone 18 pro max.
+PHONE-045,iPhone 17 Pro Max 256GB Gümüş Akıllı Cep Telefonu MFYM4TU/A,iPhone 17 Pro Max 1TB Gümüş MFYV4TU/A,comparable,Same phone model; storage differs: 256GB vs 1024GB.
+PHONE-046,iPhone 16 128GB Beyaz Akıllı Cep Telefonu MYE93TU/A,iPhone 16 Plus 128GB Beyaz MXVV3TU/A,different,Different phone models: iphone 16 vs iphone 16 plus.
+PHONE-047,iPhone 17 Pro Max 256GB Kozmik Turuncu Akıllı Cep Telefonu,iPhone 17 Pro Max 256GB Kozmik Turuncu MFYN4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-048,iPhone 17 Pro 512GB Gümüş Akıllı Cep Telefonu MG8K4TU/A,iPhone 17 Pro 512GB Abis MG8N4TU/A,comparable,Same phone model and storage; different color: gumus vs abis.
+PHONE-049,iPhone 17 Pro 512GB Kozmik Turuncu Akıllı Cep Telefonu MG8M4TU/A,iPhone 16 Plus 128GB Laciverttaş MXVX3TU/A,different,Different phone models: iphone 17 pro vs iphone 16 plus.
+PHONE-050,iPhone 17 256GB Beyaz Akıllı Cep Telefonu MG6K4TU/A,iPhone 17 256GB Beyaz MG6K4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-051,iPhone 18 Pro Max 512 GB Siyah Akıllı Cep Telefonu MJXT4TU/A,iPhone 18 Pro Max 512GB Siyah MJXT4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-052,iPhone 17 Pro 512GB Abis Akıllı Cep Telefonu MG8N4TU/A,iPhone Duo 512GB Gece Rengi MK2G4TU/A,different,Different phone models: iphone 17 pro vs iphone duo.
+PHONE-053,iPhone 17 Pro 512GB Abis Akıllı Cep Telefonu MG8N4TU/A,iPhone 17 Pro 1TB Abis MG8R4TU/A,comparable,Same phone model; storage differs: 512GB vs 1024GB.
+PHONE-054,iPhone 17 Pro 256GB Abis Akıllı Cep Telefonu MG8J4TU/A,iPhone 18 Pro 2TB Buzul Rengi MJT64TU/A,different,Different phone models: iphone 17 pro vs iphone 18 pro.
+PHONE-055,iPhone 17e 256GB Açık Pembe Akıllı Cep Telefonu MHRX4TU/A,iPhone 17e 256GB Açık Pembe MHRX4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-056,iPhone 16 128 GB Beyaz Akıllı Cep Telefonu MYE93TU/A,iPhone 16 128GB Beyaz MYE93TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-057,iPhone 18 Pro Max 1 TB Gümüş Akıllı Cep Telefonu MJXY4TU/A,iPhone 18 Pro Max 1TB Gümüş MJXY4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-058,iPhone 17 Pro 512GB Kozmik Turuncu Akıllı Cep Telefonu MG8M4TU/A,iPhone 17 Pro 512GB Kozmik Turuncu MG8M4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-059,iPhone Air 256GB Uçuk Altın Rengi Akıllı Cep Telefonu MG2N4TU/A,iPhone Air 256GB Uçuk Altın Rengi MG2N4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-060,iPhone 17 Pro 256GB Abis Akıllı Cep Telefonu MG8J4TU/A,iPhone 17e 256GB Beyaz MHRW4TU/A,different,Different phone models: iphone 17 pro vs iphone 17e.
+PHONE-061,iPhone 16 128GB Deniz Mavisi Akıllı Cep Telefonu MYED3TU/A,iPhone 16 128GB Deniz Mavisi MYED3TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-062,iPhone 17e 256GB Siyah Akıllı Cep Telefonu MHRV4TU/A,iPhone 17e 256GB Siyah MHRV4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-063,iPhone 17 256GB Lavanta Akıllı Cep Telefonu MG6M4TU/A,iPhone 17 256GB Lavanta MG6M4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-064,iPhone Air 256GB Pamuk Beyazı Akıllı Cep Telefonu MG2M4TU/A,iPhone Air 512GB Uzay Siyahı MG2Q4TU/A,comparable,Same phone model; storage differs: 256GB vs 512GB. Color wording also differs.
+PHONE-065,iPhone Air 256GB Uzay Siyahı Akıllı Cep Telefonu MG2L4TU/A,iPhone Air 256GB Uzay Siyahı MG2L4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-066,iPhone 16 128 GB Beyaz Akıllı Cep Telefonu MYE93TU/A,iPhone 16 128GB Deniz Mavisi MYED3TU/A,comparable,Same phone model and storage; different color: beyaz vs deniz mavisi.
+PHONE-067,iPhone 17 Pro 1TB Gümüş Akıllı Cep Telefonu MG8P4TU/A,iPhone 17 Pro 512GB Gümüş MG8K4TU/A,comparable,Same phone model; storage differs: 1024GB vs 512GB.
+PHONE-068,Galaxy S26 Ultra 512 GB Gök Mavisi Akıllı Cep Telefonu SM-S948BLBGTUR,iPhone 17e 256GB Beyaz MHRW4TU/A,different,Different phone models: galaxy s26 ultra vs iphone 17e.
+PHONE-069,iPhone 17 Pro 512GB Gümüş Akıllı Cep Telefonu MG8K4TU/A,iPhone 17 Pro 512GB Gümüş MG8K4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-070,iPhone 16 128 GB Laciverttaş Akıllı Cep Telefonu MYEC3TU/A,iPhone 16 128GB Laciverttaş MYEC3TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-071,iPhone 17 256GB Siyah Akıllı Cep Telefonu MG6J4TU/A,iPhone 15 256GB Siyah MTP63TU/A,different,Different phone models: iphone 17 vs iphone 15.
+PHONE-072,iPhone 17 Pro 1TB Kozmik Turuncu Akıllı Cep Telefonu MG8Q4TU/A,iPhone 17 Pro 256GB Kozmik Turuncu MG8H4TU/A,comparable,Same phone model; storage differs: 1024GB vs 256GB.
+PHONE-073,iPhone 17 Pro 256GB Kozmik Turuncu Akıllı Cep Telefonu MG8H4TU/A,iPhone 17 Pro 256GB Kozmik Turuncu MG8H4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-074,iPhone 17 Pro Max 2TB Kozmik Turuncu Akıllı Cep Telefonu MG004TU/A,iPhone 15 128GB Mavi MTP43TU/A,different,Different phone models: iphone 17 pro max vs iphone 15.
+PHONE-075,iPhone 18 Pro Max 512 GB Gümüş Akıllı Cep Telefonu MJXU4TU/A,iPhone 18 Pro Max 2TB Burgonya MJY44TU/A,comparable,Same phone model; storage differs: 512GB vs 2048GB. Color wording also differs.
+PHONE-076,iPhone 16 128GB Siyah Akıllı Cep Telefonu MYE73TU/A,iPhone 16 128GB Siyah MYE73TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-077,iPhone 16 128GB Deniz Mavisi Akıllı Cep Telefonu MYED3TU/A,iPhone 16 Plus 256GB Deniz Mavisi MXY53TU/A,different,Different phone models: iphone 16 vs iphone 16 plus.
+PHONE-078,iPhone 17 Pro Max 512GB Abis Akıllı Cep Telefonu MFYU4TU/A,iPhone Duo 512GB Yıldız Rengi MK2F4TU/A,different,Different phone models: iphone 17 pro max vs iphone duo.
+PHONE-079,iPhone 18 Pro Max 1 TB Gümüş Akıllı Cep Telefonu MJXY4TU/A,iPhone 18 Pro Max 2TB Buzul Rengi MJY54TU/A,comparable,Same phone model; storage differs: 1024GB vs 2048GB. Color wording also differs.
+PHONE-080,iPhone 18 Pro Max 1 TB Siyah Akıllı Cep Telefonu MJXX4TU/A,iPhone 18 Pro Max 1TB Buzul Rengi MJY14TU/A,comparable,Same phone model and storage; different color: siyah vs buzul rengi.
+PHONE-081,iPhone 17 512GB Lavanta Akıllı Cep Telefonu MG6U4TU/A,iPhone 17 512GB Lavanta MG6U4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-082,iPhone 17 256GB Beyaz Akıllı Cep Telefonu MG6K4TU/A,iPhone Duo 2TB Gece Rengi MK2L4TU/A,different,Different phone models: iphone 17 vs iphone duo.
+PHONE-083,iPhone 17 Pro Max 512GB Gümüş Akıllı Cep Telefonu,iPhone 18 Pro Max 2TB Siyah MJY24TU/A,different,Different phone models: iphone 17 pro max vs iphone 18 pro max.
+PHONE-084,iPhone Air 256GB Pamuk Beyazı Akıllı Cep Telefonu MG2M4TU/A,iPhone Air 256GB Pamuk Beyazı MG2M4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-085,iPhone 17 Pro 1TB Kozmik Turuncu Akıllı Cep Telefonu MG8Q4TU/A,iPhone Air 1TB Gök Mavisi MG304TU/A,different,Different phone models: iphone 17 pro vs iphone air.
+PHONE-086,iPhone 17 Pro 1TB Gümüş Akıllı Cep Telefonu MG8P4TU/A,iPhone 17 Pro 512GB Kozmik Turuncu MG8M4TU/A,comparable,Same phone model; storage differs: 1024GB vs 512GB. Color wording also differs.
+PHONE-087,iPhone 16 128 GB Siyah Akılı Cep Telefonu MYE73TU/A,iPhone 16e 128GB Siyah MD1Q4TU/A,different,Different phone models: iphone 16 vs iphone 16e.
+PHONE-088,iPhone 17 256GB Lavanta Akıllı Cep Telefonu MG6M4TU/A,iPhone 17 256GB Ada Çayı MG6N4TU/A,comparable,Same phone model and storage; different color: lavanta vs adacayi.
+PHONE-089,iPhone 17e 256GB Beyaz Akıllı Cep Telefonu MHRW4TU/A,iPhone 17e 256GB Siyah MHRV4TU/A,comparable,Same phone model and storage; different color: beyaz vs siyah.
+PHONE-090,iPhone 18 Pro Max 256 GB Siyah Akıllı Cep Telefonu MJXN4TU/A,iPhone 18 Pro Max 256GB Siyah MJXN4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-091,Galaxy S26 Plus 256GB Gök Mavisi Akıllı Cep Telefonu SM-S947BLBDTUR,iPhone 17 256GB Beyaz MG6K4TU/A,different,Different phone models: galaxy s26 plus vs iphone 17.
+PHONE-092,iPhone 16 128 GB Beyaz Akıllı Cep Telefonu MYE93TU/A,iPhone 16 Plus 128GB Beyaz MXVV3TU/A,different,Different phone models: iphone 16 vs iphone 16 plus.
+PHONE-093,iPhone 16 128GB Laciverttaş Akıllı Cep Telefonu MYEC3TU/A,iPhone 17 Pro Max 2TB Gümüş MFYY4TU/A,different,Different phone models: iphone 16 vs iphone 17 pro max.
+PHONE-094,iPhone 17e 256GB Siyah Akıllı Cep Telefonu MHRV4TU/A,iPhone 17e 512GB Açık Pembe MHU34TU/A,comparable,Same phone model; storage differs: 256GB vs 512GB. Color wording also differs.
+PHONE-095,iPhone 18 Pro Max 512 GB Gümüş Akıllı Cep Telefonu MJXU4TU/A,iPhone 18 Pro Max 512GB Gümüş MJXU4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-096,iPhone 17 Pro 256GB Gümüş Akıllı Cep Telefonu MG8G4TU/A,iPhone 17 Pro 256GB Gümüş MG8G4TU/A,same,"Same phone model, storage and color in the supplied names; both listed as new."
+PHONE-097,iPhone 17 256GB Ada Çayı Akıllı Cep Telefonu MG6N4TU/A,iPhone Air 256GB Uçuk Altın Rengi MG2N4TU/A,different,Different phone models: iphone 17 vs iphone air.
+PHONE-098,iPhone 17 Pro Max 512GB Gümüş Akıllı Cep Telefonu MFYQ4TU/A,iPhone 17 Pro Max 1TB Abis MFYX4TU/A,comparable,Same phone model; storage differs: 512GB vs 1024GB. Color wording also differs.
+PHONE-099,iPhone 17 256GB Beyaz Akıllı Cep Telefonu,iPhone Air 512GB Uçuk Altın Rengi MG2U4TU/A,different,Different phone models: iphone 17 vs iphone air.
+PHONE-100,iPhone 18 Pro Max 1 TB Gümüş Akıllı Cep Telefonu MJXY4TU/A,iPhone 18 Pro 2TB Gümüş MJT44TU/A,different,Different phone models: iphone 18 pro max vs iphone 18 pro.
