@@ -14,51 +14,72 @@ function displayProducts(items) {
     if (!productGrid) return;
 
     productGrid.replaceChildren();
-    emptyState.hidden = items.length > 0;
+    if (emptyState) emptyState.hidden = items.length > 0;
 
     items.forEach(product => {
         productGrid.appendChild(createProductCard(product));
     });
 }
 
+function priceValue(product) {
+    if (product.lowest_price === null || product.lowest_price === undefined || product.lowest_price === "") {
+        return null;
+    }
+
+    const price = Number(product.lowest_price);
+    return Number.isFinite(price) ? price : null;
+}
+
+function compareByPrice(a, b, direction) {
+    const aPrice = priceValue(a);
+    const bPrice = priceValue(b);
+
+    if (aPrice === null && bPrice === null) return 0;
+    if (aPrice === null) return 1;
+    if (bPrice === null) return -1;
+
+    return direction === "low" ? aPrice - bPrice : bPrice - aPrice;
+}
+
 function updateResults() {
     if (!productGrid) return;
 
-    const query = getSearchQuery().toLowerCase();
-    const category = new URLSearchParams(window.location.search).get("category");
+    const params = new URLSearchParams(window.location.search);
+    const query = getSearchQuery().trim().toLocaleLowerCase("tr-TR");
+    const category = (params.get("category") || "").toLocaleLowerCase("tr-TR");
 
     if (searchInput) searchInput.value = getSearchQuery();
 
     let filtered = products.filter(product => {
-        const matchesQuery =
-            product.name.toLowerCase().includes(query) ||
-            product.brand.toLowerCase().includes(query) ||
-            product.category.toLowerCase().includes(query);
+        const searchableFields = [
+            product.name,
+            product.brand?.name,
+            product.category?.name,
+            product.model,
+            product.variant
+        ];
 
-        const matchesCategory = !category || product.category === category;
+        const matchesQuery = !query || searchableFields.some(value =>
+            (value || "").toLocaleLowerCase("tr-TR").includes(query)
+        );
+        const matchesCategory = !category ||
+            (product.category?.name || "").toLocaleLowerCase("tr-TR") === category;
 
         return matchesQuery && matchesCategory;
     });
 
-    if (sortSelect.value === "low") {
-        filtered.sort((a, b) =>
-            Math.min(...a.prices.map(p => p.price)) -
-            Math.min(...b.prices.map(p => p.price))
-        );
+    if (sortSelect?.value === "low") {
+        filtered.sort((a, b) => compareByPrice(a, b, "low"));
+    } else if (sortSelect?.value === "high") {
+        filtered.sort((a, b) => compareByPrice(a, b, "high"));
     }
 
-    if (sortSelect.value === "high") {
-        filtered.sort((a, b) =>
-            Math.min(...b.prices.map(p => p.price)) -
-            Math.min(...a.prices.map(p => p.price))
-        );
+    if (resultsTitle) {
+        resultsTitle.textContent = query
+            ? 'Results for "' + getSearchQuery() + '"'
+            : category ? params.get("category") : "All Products";
     }
-
-    resultsTitle.textContent = query
-        ? `Results for "${getSearchQuery()}"`
-        : category || "All Products";
-
-    resultsCount.textContent = `${filtered.length} products found`;
+    if (resultsCount) resultsCount.textContent = filtered.length + " products found";
 
     displayProducts(filtered);
 }

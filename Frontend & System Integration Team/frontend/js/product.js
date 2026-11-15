@@ -12,26 +12,21 @@ function showError() {
 }
 
 function displayOffers(product) {
-    offerList.innerHTML = "";
+    offerList.replaceChildren();
 
-    const sortedOffers = [...product.prices];
+    const offers = Array.isArray(product.offers) ? [...product.offers] : [];
+    offers.sort((a, b) => {
+        const aPrice = Number(a.price);
+        const bPrice = Number(b.price);
+        return offerSort.value === "high" ? bPrice - aPrice : aPrice - bPrice;
+    });
 
-    if (offerSort.value === "low") {
-        sortedOffers.sort((a, b) => a.price - b.price);
-    } else {
-        sortedOffers.sort((a, b) => b.price - a.price);
-    }
+    noOffersState.hidden = offers.length > 0;
+    document.getElementById("offerCount").textContent =
+        (product.offer_count ?? offers.length) + " retailer offers found";
 
-    noOffersState.hidden = sortedOffers.length > 0;
-
-    if (sortedOffers.length === 0) return;
-
-    const lowestPrice = Math.min(...sortedOffers.map(offer => offer.price));
-
-    sortedOffers.forEach(offer => {
-        const isCheapest = offer.price === lowestPrice;
-        const card = createOfferCard(offer, isCheapest);
-        offerList.appendChild(card);
+    offers.forEach(offer => {
+        offerList.appendChild(createOfferCard(offer));
     });
 }
 
@@ -43,32 +38,39 @@ function loadProduct() {
     const productId = Number(
         new URLSearchParams(window.location.search).get("id")
     );
-
-    const product = products.find(item => item.id === productId);
+    const product = products.find(item => item.product_id === productId);
 
     if (!product) {
         showError();
         return;
     }
 
-    document.getElementById("productImage").textContent = product.image;
-    document.getElementById("productCategory").textContent = product.category;
-    document.getElementById("productName").textContent = product.name;
-    document.getElementById("productBrand").textContent = `Brand: ${product.brand}`;
+    const productImage = document.getElementById("productImage");
+    populateProductImage(
+        productImage,
+        product.image_url,
+        product.category?.name,
+        product.name
+    );
+    document.getElementById("productCategory").textContent =
+        product.category?.name || "Product";
+    document.getElementById("productName").textContent =
+        product.name || "Unnamed product";
+    document.getElementById("productBrand").textContent =
+        product.brand?.name ? "Brand: " + product.brand.name : "Brand not specified";
 
     const attributes = document.getElementById("productAttributes");
-    attributes.innerHTML = "";
+    attributes.replaceChildren();
 
-    const brandAttribute = document.createElement("span");
-    brandAttribute.textContent = `Brand: ${product.brand}`;
-
-    const categoryAttribute = document.createElement("span");
-    categoryAttribute.textContent = `Category: ${product.category}`;
-
-    attributes.append(brandAttribute, categoryAttribute);
-
-    document.getElementById("offerCount").textContent =
-        `${product.prices.length} retailer offers found`;
+    [
+        ["Category", product.category?.name],
+        ["Model", product.model],
+        ["Variant", product.variant]
+    ].filter(([, value]) => value).forEach(([label, value]) => {
+        const attribute = document.createElement("span");
+        attribute.textContent = label + ": " + value;
+        attributes.appendChild(attribute);
+    });
 
     displayOffers(product);
 
@@ -81,9 +83,7 @@ if (offerSort) {
         const productId = Number(
             new URLSearchParams(window.location.search).get("id")
         );
-
-        const product = products.find(item => item.id === productId);
-
+        const product = products.find(item => item.product_id === productId);
         if (product) displayOffers(product);
     });
 }

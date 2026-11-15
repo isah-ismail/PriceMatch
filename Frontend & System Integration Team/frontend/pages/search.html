@@ -9,14 +9,68 @@
 <body>
 
     <header class="navbar">
-        <a href="../index.html" class="logo">Price<span>Match</span></a>
+        <div class="header-start">
+            <a href="../index.html" class="logo">Price<span>Match</span></a>
+            <div class="category-menu">
+                <button
+                    class="category-toggle"
+                    id="categoryToggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="categoryPanel"
+                >
+                    <span>Categories</span>
+                    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+                </button>
+                <div class="category-panel" id="categoryPanel" hidden>
+                    <div class="category-panel-heading">
+                        <span class="eyebrow">SHOP BY CATEGORY</span>
+                        <span>Browse popular sections</span>
+                    </div>
+                    <div class="category-options">
+                    <a class="category-option" href="search.html?category=Electronics">
+                        <span class="category-option-icon" aria-hidden="true">💻</span>
+                        <span class="category-option-copy">
+                            <strong>Electronics</strong>
+                            <small>Computers, phones and more</small>
+                        </span>
+                        <span class="category-option-arrow" aria-hidden="true">↗</span>
+                    </a>
+                    <a class="category-option" href="search.html?category=Fashion">
+                        <span class="category-option-icon" aria-hidden="true">👕</span>
+                        <span class="category-option-copy">
+                            <strong>Fashion</strong>
+                            <small>Clothing and accessories</small>
+                        </span>
+                        <span class="category-option-arrow" aria-hidden="true">↗</span>
+                    </a>
+                    <a class="category-option" href="search.html?category=Home">
+                        <span class="category-option-icon" aria-hidden="true">🏠</span>
+                        <span class="category-option-copy">
+                            <strong>Home & Living</strong>
+                            <small>Everything for your home</small>
+                        </span>
+                        <span class="category-option-arrow" aria-hidden="true">↗</span>
+                    </a>
+                    <a class="category-option" href="search.html?category=Gaming">
+                        <span class="category-option-icon" aria-hidden="true">🎮</span>
+                        <span class="category-option-copy">
+                            <strong>Gaming</strong>
+                            <small>Games and accessories</small>
+                        </span>
+                        <span class="category-option-arrow" aria-hidden="true">↗</span>
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <nav class="nav-links">
             <a href="../index.html">Home</a>
             <a href="search.html" class="active">Products</a>
         </nav>
 
-        <a href="../index.html#categories" class="nav-button">Explore Categories</a>
+        <a href="search.html" class="nav-button">All Products</a>
     </header>
 
     <main class="search-page">
@@ -71,6 +125,7 @@
 
     <script src="../js/products.js"></script>
     <script src="../js/components.js"></script>
+    <script src="../js/category-dropdown.js"></script>
     <script src="../js/app.js"></script>
 </body>
 </html>
