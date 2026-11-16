@@ -1,11 +1,12 @@
 
 from pathlib import Path
+import os
 import shutil
 import subprocess
 import sys
 
 # PriceMatch database configuration
-DATABASE_NAME = "pricematch_db"
+DATABASE_NAME = os.getenv("PGDATABASE", "pricematch_db")
 
 # Find the project's migration folder
 PROJECT_DIR = Path(__file__).resolve().parent.parent
