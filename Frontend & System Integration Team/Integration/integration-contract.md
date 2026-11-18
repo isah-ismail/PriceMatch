@@ -131,6 +131,8 @@ Every item below is **open**. Suggested reviewers identify relevant roles, not c
   "offers": [
     {
       "offer_id": 5120,
+      "listing_id": "POZITIF-367283",
+      "condition": "new",
       "retailer": {
         "retailer_id": 1,
         "name": "Pozitif Teknoloji"
@@ -222,7 +224,7 @@ This table records the stack visible in the repository. Each team should confirm
 | Frontend | Static HTML, CSS and JavaScript | Frontend team confirms browser support and how to serve pages locally. |
 | Backend | Python 3.12 in CI, FastAPI, Uvicorn, SQLAlchemy 2 and psycopg 3 | Backend team confirms Python 3.12 as the shared development version and notes any additional constraints. |
 | Database | PostgreSQL 17 in CI and the local setup guide | Database team confirms PostgreSQL 17 and the migration workflow. |
-| Data collection | Python, requests, Beautiful Soup 4 and lxml | Data team confirms its Python version and scraper requirements. |
+| Data collection | Python, requests, Beautiful Soup 4 and lxml | Confirmed by Esra (13 Nov): Windows 11, Python 3.12 (`py -3.12 -m venv .venv`). Scrapers updated to 3 MVP stores. |
 | Product matching | Python, pandas, NumPy, RapidFuzz and scikit-learn | Matching team confirms its Python version and requirements. |
 | Tests and CI | pytest, GitHub Actions, SQLite and PostgreSQL 17 | Integration and backend teams confirm which checks are expected for each change. |
 

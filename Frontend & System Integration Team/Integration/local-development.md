@@ -100,7 +100,7 @@ From the repository root, install the scraper requirements and provide the actua
 ```powershell
 .\.venv\Scripts\python.exe -m pip install -r '.\Data Collection & Processing Team\scrapers\requirements.txt'
 $env:INFLATION_DATAS = "C:\path\to\InflationResearchStudy\InflationItems\Datas"
-.\.venv\Scripts\python.exe ".\Data Collection & Processing Team\scrapers\specs\marketzade_specs.py" --check
+.\.venv\Scripts\python.exe ".\Data Collection & Processing Team\scrapers\beymen_specs.py" --help
 ```
 
 `--check` makes no retailer requests and reports latest-file join statistics. It is not a pass/fail test: missing daily files can be logged without a failing process exit code. Review output and source dates.
