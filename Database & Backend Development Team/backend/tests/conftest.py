@@ -59,16 +59,21 @@ def seeded(engine) -> dict:
         db.add_all([p1, p2, p3, p4])
         db.flush()
 
-        o1 = Offer(product=p1, retailer=pozitif, retailer_product_id="367283", product_url="https://www.pt.com.tr/iphone-17-pro",
+        o1 = Offer(product=p1, retailer=pozitif, retailer_product_id="367283", listing_id="POZITIF-367283",
+                   product_url="https://www.pt.com.tr/iphone-17-pro",
                    current_price=Decimal("125999.00"), in_stock=True, last_updated=now)
-        o2 = Offer(product=p1, retailer=beymen, retailer_product_id="1865304", product_url="https://www.beymen.com/tr/p_x_1865304",
+        o2 = Offer(product=p1, retailer=beymen, retailer_product_id="1865304", listing_id="BEYMEN-1865304",
+                   product_url="https://www.beymen.com/tr/p_x_1865304",
                    current_price=Decimal("119999.00"), in_stock=False, last_updated=now)
-        o3 = Offer(product=p1, retailer=samsung, retailer_product_id="X1", product_url="https://www.samsung.com/tr/x1",
+        # Migration 002: a listing may come without a store URL.
+        o3 = Offer(product=p1, retailer=samsung, retailer_product_id="X1", listing_id="SAMSUNG-X1", product_url=None,
                    current_price=Decimal("122679.38"), in_stock=None, last_updated=now)
-        o4 = Offer(product=p2, retailer=samsung, retailer_product_id="SM-A185FLBDTUR", product_url="https://www.samsung.com/tr/a18",
+        o4 = Offer(product=p2, retailer=samsung, retailer_product_id="SM-A185FLBDTUR", listing_id="SAMSUNG-SM-A185FLBDTUR",
+                   product_url="https://www.samsung.com/tr/a18",
                    current_price=Decimal("17999.00"), in_stock=True, last_updated=now)
+        # Legacy row: no listing_id yet, explicit non-default condition.
         o5 = Offer(product=p4, retailer=pozitif, retailer_product_id="9", product_url="https://www.pt.com.tr/usb-c",
-                   current_price=Decimal("399.00"), in_stock=True, last_updated=now)
+                   condition="display", current_price=Decimal("399.00"), in_stock=True, last_updated=now)
         db.add_all([o1, o2, o3, o4, o5])
         db.flush()
 

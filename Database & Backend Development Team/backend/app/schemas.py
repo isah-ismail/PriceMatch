@@ -112,8 +112,10 @@ class OfferOut(BaseModel):
     offer_id: int
     retailer: RetailerRef
     retailer_product_id: str | None = None
+    listing_id: str | None = Field(None, description="Team 1 listing id, e.g. BEYMEN-1865304")
     retailer_product_name: str | None = None
-    product_url: str
+    condition: str = Field("new", description="new | display | used")
+    product_url: str | None = Field(None, description="Null when the store page URL is unknown")
     price: Decimal = Field(description="Current price, 2 decimals")
     currency: str
     in_stock: bool | None = Field(None, description="true/false, or null when the store does not say")

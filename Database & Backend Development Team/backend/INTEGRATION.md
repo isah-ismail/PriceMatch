@@ -5,10 +5,21 @@ Owner: Yake (Backend & API). Updated 2026‑10‑30.
 
 ## Fatima — database (Team 03)
 
-**Using now:** `database/migrations/001_initial_schema.sql` as is. `app/models.py`
-mirrors it 1:1; please ping me whenever you add a migration so I update the ORM.
+**Using now:** migrations `001_initial_schema.sql` + `002_listing_identity.sql`.
+`app/models.py` mirrors them; please ping me whenever you add a migration so I update the ORM.
 
-**Requests for migration `002`** (all come from Team 01's README + the demo load):
+**Migration 002 landed (Fatima, 16 Nov) and the backend follows it since 20 Nov:**
+
+* `offers.listing_id` (unique when not null) and `offers.condition` (`new`/`display`/`used`, default `new`)
+  are in the ORM and returned by every offer payload (`OfferOut.listing_id`, `OfferOut.condition`).
+* `offers.product_url` is nullable: the API returns `"product_url": null` instead of failing.
+* `UNIQUE (retailer_id, product_url)` is gone; variants may share a store page.
+  `idx_offers_retailer_source_id (retailer_id, retailer_product_id)` and `idx_products_model` are mirrored.
+* `scripts/seed_demo_data.py` writes `listing_id` and `condition` from Team 01's spec files and no longer
+  drops rows without a URL. Fatima's `scripts/import_week3.py` is the primary loader; the seed script stays
+  for local demo data.
+
+**Original requests for migration `002`** (kept for the record; the first three are done):
 
 | Change | Why |
 |---|---|
