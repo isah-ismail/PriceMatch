@@ -122,6 +122,44 @@ def test_product_detail_offers_sorted_and_lowest_flagged(client, ids):
     assert offers[0]["currency"] == "TRY" and offers[0]["last_updated"]
 
 
+def test_offer_exposes_migration_002_fields(client, ids):
+    """listing_id and condition are returned; a missing store URL is null, not a 500."""
+    offers = client.get(f"{API}/products/{ids['p_multi']}/offers").json()
+    by_store = {o["retailer"]["name"]: o for o in offers}
+    assert by_store["Beymen"]["listing_id"] == "BEYMEN-1865304"
+    assert by_store["Samsung"]["listing_id"] == "SAMSUNG-X1"
+    assert by_store["Samsung"]["product_url"] is None
+    assert all(o["condition"] == "new" for o in offers)
+
+    cheap = client.get(f"{API}/products/{ids['p_cheap']}").json()
+    assert cheap["offers"][0]["listing_id"] is None
+    assert cheap["offers"][0]["condition"] == "display"
+
+
+def test_two_listings_may_share_a_store_url(engine, ids):
+    """Migration 002 dropped UNIQUE(retailer_id, product_url): colour variants share one page."""
+    from datetime import datetime, timezone
+
+    from sqlalchemy.orm import Session
+
+    from app.models import Offer
+
+    now = datetime.now(timezone.utc)
+    url = "https://www.pt.com.tr/usb-c"  # already used by the seeded Pozitif offer
+    with Session(engine) as db:
+        extra = Offer(product_id=ids["p_cheap"], retailer_id=ids["r_pozitif"], retailer_product_id="9",
+                      listing_id="POZITIF-9-BLACK", product_url=url,
+                      current_price=Decimal("449.00"), in_stock=True, last_updated=now)
+        db.add(extra)
+        db.commit()
+        try:
+            same_url = db.query(Offer).filter(Offer.retailer_id == ids["r_pozitif"], Offer.product_url == url).count()
+            assert same_url == 2
+        finally:
+            db.delete(extra)
+            db.commit()
+
+
 def test_product_detail_without_offers(client, ids):
     body = client.get(f"{API}/products/{ids['p_no_offers']}").json()
     assert body["offers"] == [] and body["lowest_price"] is None and body["brand"] is None

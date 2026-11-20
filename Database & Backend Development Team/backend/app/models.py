@@ -1,4 +1,5 @@
-"""ORM models mirroring ``database/migrations/001_initial_schema.sql``.
+"""ORM models mirroring ``database/migrations/001_initial_schema.sql`` and
+``002_listing_identity.sql``.
 
 Keep these in sync with the migrations. If the database team adds a migration,
 update the matching model here.
@@ -21,8 +22,8 @@ from sqlalchemy import (
     Numeric,
     String,
     Text,
-    UniqueConstraint,
     func,
+    text,
 )
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -93,9 +94,18 @@ class Retailer(Base):
 class Offer(Base):
     __tablename__ = "offers"
     __table_args__ = (
-        UniqueConstraint("retailer_id", "product_url"),
+        # Migration 002 dropped UNIQUE(retailer_id, product_url): variants may share a page.
         CheckConstraint("current_price > 0", name="offers_current_price_positive"),
+        CheckConstraint("condition IN ('new', 'display', 'used')", name="offers_condition_allowed"),
         Index("idx_offers_product_price", "product_id", "current_price"),
+        Index("idx_offers_retailer_source_id", "retailer_id", "retailer_product_id"),
+        Index(
+            "uq_offers_listing_id",
+            "listing_id",
+            unique=True,
+            postgresql_where=text("listing_id IS NOT NULL"),
+            sqlite_where=text("listing_id IS NOT NULL"),
+        ),
     )
 
     offer_id: Mapped[int] = mapped_column(PK, Identity(always=True), primary_key=True)
@@ -103,7 +113,10 @@ class Offer(Base):
     retailer_id: Mapped[int] = mapped_column(ForeignKey("retailers.retailer_id"), nullable=False)
     retailer_product_id: Mapped[str | None] = mapped_column(String(150))
     retailer_product_name: Mapped[str | None] = mapped_column(String(255))
-    product_url: Mapped[str] = mapped_column(Text, nullable=False)
+    # Team 1 listing id (e.g. BEYMEN-1865304); unique per listing, variants included.
+    listing_id: Mapped[str | None] = mapped_column(String(255))
+    condition: Mapped[str] = mapped_column(String(10), nullable=False, default="new", server_default="new")
+    product_url: Mapped[str | None] = mapped_column(Text)
     current_price: Mapped[Decimal] = mapped_column(Numeric(12, 2), nullable=False)
     currency: Mapped[str] = mapped_column(String(3), nullable=False, default="TRY", server_default="TRY")
     in_stock: Mapped[bool | None] = mapped_column(Boolean)

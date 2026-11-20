@@ -186,6 +186,8 @@ def sorted_offers(
             "offer_id": o.offer_id,
             "retailer": o.retailer,
             "retailer_product_id": o.retailer_product_id,
+            "listing_id": o.listing_id,
+            "condition": o.condition,
             "retailer_product_name": o.retailer_product_name,
             "product_url": o.product_url,
             "price": o.current_price,

@@ -312,14 +312,16 @@ def main() -> int:
             if not history:
                 skipped_no_price += 1
                 continue
-            url = (row.get("url") or "").strip()
-            if not url:
+            # Migration 002: a listing without a store URL is still imported (product_url NULL).
+            url = (row.get("url") or "").strip() or None
+            if url is None:
                 skipped_no_url += 1
-                continue
             retailer_id = retailer_ids[row["retailer"]]
-            if (retailer_id, url) in seen_urls:
+            listing_id = (row.get("listing_id") or "").strip()[:255] or None
+            dedupe_key = (retailer_id, listing_id or url)
+            if dedupe_key[1] and dedupe_key in seen_urls:
                 continue
-            seen_urls.add((retailer_id, url))
+            seen_urls.add(dedupe_key)
 
             ckey = canonical_key(row)
             if ckey not in product_ids:
@@ -349,6 +351,8 @@ def main() -> int:
                     "_ckey": ckey,
                     "retailer_id": retailer_id,
                     "retailer_product_id": row["retailer_product_id"].strip()[:150],
+                    "listing_id": listing_id,
+                    "condition": (row.get("condition") or "new").strip().lower()[:10] or "new",
                     "retailer_product_name": (row.get("name") or "").strip()[:255] or None,
                     "product_url": url,
                     "current_price": last_price,

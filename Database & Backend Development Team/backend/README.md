@@ -128,5 +128,5 @@ backend/
 Known gaps / next steps:
 
 * Search ranking is `retailer_count desc, name length, price`. Proper relevance needs `pg_trgm` similarity (also handles Turkish `İ/ı`).
-* Schema needs `offers.condition` (new/display/used) and a unique key on `(retailer_id, retailer_product_id)` — requested from Fatima in `INTEGRATION.md`.
+* Migration 002 (`listing_id`, `condition`, nullable `product_url`) is mirrored in the ORM and the API as of 20 Nov. Grouping offers under one canonical product still waits for the matching team's `listing_id → canonical_product_id` table.
 * Some Beymen model codes are parsed from names, so a few "matched" products are wrong (example in `INTEGRATION.md`). That is the matching team's input, not something the API should hide.
