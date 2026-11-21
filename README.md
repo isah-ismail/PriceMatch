@@ -2,7 +2,7 @@
 A recreation of cimri/akakçe
 
 PriceMatch is a course project for comparing the same product across retailers, showing offers and price history.
-Live site: 87.248.157.147:8001
+Live site url: 87.248.157.147:8001
 
 ## Current status
 
