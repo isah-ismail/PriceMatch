@@ -39,20 +39,20 @@ Do not silently drop unmapped fields or assume that one barcode proves product e
 
 Every item below is **open**. Suggested reviewers identify relevant roles, not confirmed assignees.
 
-| ID | Decision needed | Evidence / risk | Suggested reviewers |
-|---|---|---|---|
-| INT-01 | Canonical listing identity and uniqueness | Data team specifies retailer + listing ID; schema currently uses retailer + URL uniqueness and nullable listing ID | Data, database/backend |
-| INT-02 | Missing or invalid URL handling | Schema requires nonempty URL; daily sources may lack URLs; enrichment sometimes supplies them | Data, database/backend |
-| INT-03 | Variant and condition representation | Current schema has model and variant text, without dedicated spec columns | Matching, database/backend |
-| INT-04 | Grocery join normalization and ambiguity policy | Existing documentation rejects ambiguous names; legacy formats differ | Data, matching, integration |
-| INT-05 | Canonical category mapping | Retailer paths and TÜİK codes differ from canonical categories | Matching/hierarchy, data, database |
-| INT-06 | Price parsing, currency and observation time | History defaults to insertion time; source dates may have day-level precision | Data, database/backend |
-| INT-07 | Import identity and replay behavior | History has no source-record deduplication constraint | Database/backend, integration |
-| INT-08 | Late data, corrections and atomic updates | No importer currently coordinates current price and history | Database/backend, integration |
-| INT-09 | Unresolved matching results and provenance | No matching output or confidence/review contract exists | Matching, integration, database |
-| INT-10 | Stock and freshness semantics | Nullable in_stock and last_updated exist; missing listings do not prove out-of-stock | Data, backend, frontend |
-| INT-11 | API request/response and error contracts | Existing read-only v1 API and samples are ready for frontend/backend confirmation | Backend, frontend, integration |
-| INT-12 | Supported runtime and reproducible dependencies | Python minimum is documented; scraper dependencies use lower bounds | Component owners, integration |
+| ID | Decision needed | Status (Week 4) | Resolution / Evidence | Suggested reviewers |
+|---|---|---|---|---|
+| INT-01 | Canonical listing identity and uniqueness | **RESOLVED** | Migration 002 added `listing_id VARCHAR(255)` with unique partial index `uq_offers_listing_id`. PR #10 mirrored in Backend ORM. | Data, database/backend |
+| INT-02 | Missing or invalid URL handling | **RESOLVED** | Migration 002 made `product_url` nullable (`DROP NOT NULL`). PR #10 updated `OfferOut` schema to allow null URLs without 500 error. | Data, database/backend |
+| INT-03 | Variant and condition representation | **RESOLVED** | Migration 002 added `condition VARCHAR(10)` with check constraint `('new', 'display', 'used')`. Backend ORM synced. | Matching, database/backend |
+| INT-04 | Grocery join normalization and ambiguity policy | Open | Scrapers merged to 3 clean MVP retailers (Beymen, Pozitif, Samsung). Grocery formats archived. | Data, matching, integration |
+| INT-05 | Canonical category mapping | In Progress | 250-pair sets generated for Phones, Cosmetics, Cars, Dorms, Bikes to train hybrid matcher. | Matching/hierarchy, data, database |
+| INT-06 | Price parsing, currency and observation time | Open | Prices standardized to float/numeric. History timestamp defaults to current timestamp in UTC. | Data, database/backend |
+| INT-07 | Import identity and replay behavior | Open | Importer `import_week3.py` processes listings; canonical grouping to be applied in Week 5. | Database/backend, integration |
+| INT-08 | Late data, corrections and atomic updates | Open | Database transactions wrap multi-store imports atomically. | Database/backend, integration |
+| INT-09 | Unresolved matching results and provenance | In Progress | Matching outputs confidence scores and reasons; unconfirmed matches remain separated. | Matching, integration, database |
+| INT-10 | Stock and freshness semantics | In Progress | Nullable `in_stock` and `last_updated` supported. API treats unknown stock as eligible for lowest price. | Data, backend, frontend |
+| INT-11 | API request/response and error contracts | **CONFIRMED** | Verified by Week 4 automated smoke test suite (10/10 checks passing). | Backend, frontend, integration |
+| INT-12 | Supported runtime and reproducible dependencies | **CONFIRMED** | Python 3.12, PostgreSQL 17, FastAPI, React frontend confirmed across teams. | Component owners, integration |
 
 ## Frontend and backend API v1 review
 
